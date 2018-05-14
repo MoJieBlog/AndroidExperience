@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">CommonUtils</string>
+    <string name="getVersionFail">获取版本号失败</string>
+</resources>
