@@ -1,8 +1,8 @@
-package com.lzp.base.actionbar;
+package com.lzp.base.component.actionbar;
 
 import android.graphics.drawable.Drawable;
 
-import com.lzp.base.IBase;
+import com.lzp.base.component.IBase;
 
 /**
  * Created by Li Xiaopeng on 18/3/23.

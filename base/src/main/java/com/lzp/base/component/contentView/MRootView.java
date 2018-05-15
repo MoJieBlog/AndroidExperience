@@ -1,4 +1,4 @@
-package com.lzp.base.contentView;
+package com.lzp.base.component.contentView;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -7,8 +7,8 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 
-import com.lzp.base.actionbar.MActionbar;
-import com.lzp.base.statusbar.MStatusBar;
+import com.lzp.base.component.actionbar.MActionbar;
+import com.lzp.base.component.statusbar.MStatusBar;
 
 /**
  * Created by Li Xiaopeng on 18/3/22.

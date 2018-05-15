@@ -1,4 +1,4 @@
-package com.lzp.base;
+package com.lzp.base.component;
 
 import android.os.Bundle;
 

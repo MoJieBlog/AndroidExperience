@@ -1,4 +1,4 @@
-package com.lzp.base;
+package com.lzp.base.component;
 
 import android.app.Fragment;
 import android.content.Context;
@@ -10,12 +10,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.lzp.base.actionbar.IMActionbar;
-import com.lzp.base.actionbar.MActionbar;
-import com.lzp.base.contentView.IMRootView;
-import com.lzp.base.contentView.MRootView;
-import com.lzp.base.statusbar.IMStatusBar;
-import com.lzp.base.statusbar.MStatusBar;
+import com.lzp.base.component.actionbar.IMActionbar;
+import com.lzp.base.component.actionbar.MActionbar;
+import com.lzp.base.component.contentView.IMRootView;
+import com.lzp.base.component.contentView.MRootView;
+import com.lzp.base.component.statusbar.IMStatusBar;
+import com.lzp.base.component.statusbar.MStatusBar;
 
 /**
  * Created by Li Xiaopeng on 18/5/14.

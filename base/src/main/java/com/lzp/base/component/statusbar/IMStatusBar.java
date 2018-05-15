@@ -1,6 +1,6 @@
-package com.lzp.base.statusbar;
+package com.lzp.base.component.statusbar;
 
-import com.lzp.base.IBase;
+import com.lzp.base.component.IBase;
 
 /**
  * Created by Li Xiaopeng on 18/3/22.

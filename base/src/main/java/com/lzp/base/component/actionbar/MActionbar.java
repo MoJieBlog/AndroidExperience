@@ -1,4 +1,4 @@
-package com.lzp.base.actionbar;
+package com.lzp.base.component.actionbar;
 
 import android.content.Context;
 import android.content.res.Resources;

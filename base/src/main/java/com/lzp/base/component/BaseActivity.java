@@ -1,23 +1,26 @@
-package com.lzp.base;
+package com.lzp.base.component;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.PersistableBundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 
-import com.lzp.base.actionbar.IMActionbar;
-import com.lzp.base.actionbar.MActionbar;
-import com.lzp.base.contentView.IMRootView;
-import com.lzp.base.contentView.MRootView;
-import com.lzp.base.statusbar.IMStatusBar;
-import com.lzp.base.statusbar.MStatusBar;
+import com.lzp.base.R;
+import com.lzp.base.component.actionbar.IMActionbar;
+import com.lzp.base.component.actionbar.MActionbar;
+import com.lzp.base.component.contentView.IMRootView;
+import com.lzp.base.component.contentView.MRootView;
+import com.lzp.base.component.statusbar.IMStatusBar;
+import com.lzp.base.component.statusbar.MStatusBar;
+import com.lzp.base.swipeback.ParallaxHelper;
+import com.lzp.base.swipeback.ViewDragHelper;
+import com.lzp.base.swipeback.widget.ParallaxBackLayout;
 import com.lzp.base.utils.SystemBarTintManager;
 import com.lzp.base.utils.SystemUtils;
 
@@ -44,7 +47,7 @@ public class BaseActivity extends AppCompatActivity implements IMStatusBar, IMAc
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        setEdgeFlag(ViewDragHelper.EDGE_LEFT);
         mRootView = new MRootView(this) {
             @Override
             public int getContentLayoutRes() {
@@ -68,6 +71,13 @@ public class BaseActivity extends AppCompatActivity implements IMStatusBar, IMAc
         }catch (Exception e){
             e.printStackTrace();
         }
+    }
+
+    private void setEdgeFlag(int edgeFlag) {
+        ParallaxBackLayout layout = ParallaxHelper.getParallaxBackLayout(this,true);
+        layout.setScrollThresHold(0.2f);
+        layout.setEdgeFlag(edgeFlag);
+        layout.setEnableGesture(true);
     }
 
     @Override

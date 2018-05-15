@@ -1,4 +1,4 @@
-package com.lzp.base.statusbar;
+package com.lzp.base.component.statusbar;
 
 import android.content.Context;
 import android.content.res.Resources;

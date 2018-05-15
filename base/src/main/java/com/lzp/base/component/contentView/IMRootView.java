@@ -1,10 +1,10 @@
-package com.lzp.base.contentView;
+package com.lzp.base.component.contentView;
 
 import android.view.View;
 
-import com.lzp.base.IBase;
-import com.lzp.base.actionbar.MActionbar;
-import com.lzp.base.statusbar.MStatusBar;
+import com.lzp.base.component.IBase;
+import com.lzp.base.component.actionbar.MActionbar;
+import com.lzp.base.component.statusbar.MStatusBar;
 
 /**
  * Created by Li Xiaopeng on 18/3/23.
