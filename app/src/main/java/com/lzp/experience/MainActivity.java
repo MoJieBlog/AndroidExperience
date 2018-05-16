@@ -1,6 +1,5 @@
 package com.lzp.experience;
 
-import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 
@@ -13,20 +12,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        setNeedActionBar(true);
-        setNeedStatusBar(true);
-
-        setStatusBarColor(Color.parseColor("#ffd700"));
-        setActionbarBackgroundColor(Color.parseColor("#ffa500"));
-
-        setActionBarTitle("测试标题");
-        setActionBarTitleColor(Color.parseColor("#e60012"));
-        setRightTextVisible(true);
-        setRightTextString("测试");
-
-        setLeftIconVisible(true);
-        setBottomLineVisible(true);
-        setBottomLineColor(Color.parseColor("#e60012"));
 
         setListener(this);
     }
@@ -41,10 +26,5 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
             case R.id.iv_left_icon:
                 break;
         }
-    }
-
-    @Override
-    public void onPointerCaptureChanged(boolean hasCapture) {
-
     }
 }

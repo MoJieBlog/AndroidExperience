@@ -26,7 +26,7 @@ android {
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-    api 'com.jakewharton:butterknife:5.1.1'
+    //implementation 'com.jakewharton:butterknife:5.1.1'
 
     implementation project(':base')
     implementation project(':commonutils')
