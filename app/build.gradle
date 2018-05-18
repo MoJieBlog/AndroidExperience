@@ -22,12 +22,14 @@ android {
             jniLibs.srcDirs = ['libs']
         }
     }
+    defaultConfig {
+        //添加如下配置就OK了
+        javaCompileOptions { annotationProcessorOptions { includeCompileClasspath = true } }
+    }
 }
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-    //implementation 'com.jakewharton:butterknife:5.1.1'
-
     implementation project(':base')
     implementation project(':commonutils')
     implementation project(':support')

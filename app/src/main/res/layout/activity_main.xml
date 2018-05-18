@@ -21,17 +21,20 @@
         android:alpha="0.7">
 
         <LinearLayout
+            android:id="@+id/ll_main_tab_one"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:gravity="center"
             android:orientation="vertical"
             android:layout_height="match_parent">
             <ImageView
+                android:id="@+id/iv_main_tab_one"
                 android:layout_width="26dp"
                 android:layout_height="26dp"
                 android:src="@mipmap/ic_launcher_round"/>
 
             <TextView
+                android:id="@+id/tv_main_tab_one"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="3dp"
@@ -40,17 +43,20 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/ll_main_tab_two"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:gravity="center"
             android:orientation="vertical"
             android:layout_height="match_parent">
             <ImageView
+                android:id="@+id/iv_main_tab_two"
                 android:layout_width="26dp"
                 android:layout_height="26dp"
                 android:src="@mipmap/ic_launcher_round"/>
 
             <TextView
+                android:id="@+id/tv_main_tab_two"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="3dp"
@@ -59,17 +65,20 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/ll_main_tab_three"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:gravity="center"
             android:orientation="vertical"
             android:layout_height="match_parent">
             <ImageView
+                android:id="@+id/iv_main_tab_three"
                 android:layout_width="26dp"
                 android:layout_height="26dp"
                 android:src="@mipmap/ic_launcher_round"/>
 
             <TextView
+                android:id="@+id/tv_amin_tab_three"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="3dp"

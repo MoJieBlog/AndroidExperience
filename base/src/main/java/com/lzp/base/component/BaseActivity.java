@@ -27,6 +27,8 @@ import com.lzp.base.utils.SystemUtils;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 
+import butterknife.ButterKnife;
+
 /**
  * Created by Li Xiaopeng on 18/3/22.
  */
@@ -85,6 +87,7 @@ public class BaseActivity extends AppCompatActivity implements IMStatusBar, IMAc
         configeFullScreen();
         contentView = view;
         super.setContentView(mRootView.initRootView());
+        ButterKnife.inject(this);
     }
 
     @Override
@@ -92,6 +95,7 @@ public class BaseActivity extends AppCompatActivity implements IMStatusBar, IMAc
         configeFullScreen();
         contentLayoutId = layoutResID;
         super.setContentView(mRootView.initRootView());
+        ButterKnife.inject(this);
         if (basePage != null){
             basePage.initView();
             basePage.setListener();

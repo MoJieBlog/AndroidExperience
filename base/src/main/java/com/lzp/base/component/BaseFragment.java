@@ -17,6 +17,8 @@ import com.lzp.base.component.contentView.MRootView;
 import com.lzp.base.component.statusbar.IMStatusBar;
 import com.lzp.base.component.statusbar.MStatusBar;
 
+import butterknife.ButterKnife;
+
 /**
  * Created by Li Xiaopeng on 18/5/14.
  */
@@ -60,6 +62,7 @@ public class BaseFragment extends Fragment implements IMRootView, IMStatusBar, I
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
+        ButterKnife.bind(this,rootView.getRootView());
         try {
             mBasePage = (IBasePage) this;
             if (savedInstanceState != null){
@@ -94,7 +97,7 @@ public class BaseFragment extends Fragment implements IMRootView, IMStatusBar, I
     }
 
 
-    private void onMCreate(Bundle savedInstanceState) {
+    public void onMCreate(Bundle savedInstanceState) {
 
     }
 
