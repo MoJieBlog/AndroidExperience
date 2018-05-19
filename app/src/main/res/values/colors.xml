@@ -6,4 +6,8 @@
 
     <color name="line">#b2b2b2</color>
     <color name="ffffff">#ffffff</color>
+
+    <color name="theme">#ff4081</color>
+    <color name="theme_tab_selected">#ff4081</color>
+    <color name="theme_tab_unselected">#999999</color>
 </resources>

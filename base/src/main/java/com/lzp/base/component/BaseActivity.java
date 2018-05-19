@@ -87,7 +87,7 @@ public class BaseActivity extends AppCompatActivity implements IMStatusBar, IMAc
         configeFullScreen();
         contentView = view;
         super.setContentView(mRootView.initRootView());
-        ButterKnife.inject(this);
+        ButterKnife.bind(this);
     }
 
     @Override
@@ -95,7 +95,7 @@ public class BaseActivity extends AppCompatActivity implements IMStatusBar, IMAc
         configeFullScreen();
         contentLayoutId = layoutResID;
         super.setContentView(mRootView.initRootView());
-        ButterKnife.inject(this);
+        ButterKnife.bind(this);
         if (basePage != null){
             basePage.initView();
             basePage.setListener();
@@ -317,104 +317,104 @@ public class BaseActivity extends AppCompatActivity implements IMStatusBar, IMAc
     }
 
     @Override
-    public void setActionbarBackgroundColor(int color) {
+    public void setActionBarBackgroundColor(int color) {
         MActionbar mActionBar = mRootView.getMActionBar();
-        if (mActionBar != null) mActionBar.setActionbarBackgroundColor(color);
+        if (mActionBar != null) mActionBar.setActionBarBackgroundColor(color);
     }
 
     @Override
-    public void setActionbarBackgroundColorRes(int colorRes) {
-        setActionbarBackgroundColor(getResources().getColor(colorRes));
+    public void setActionBarBackgroundColorRes(int colorRes) {
+        setActionBarBackgroundColor(getResources().getColor(colorRes));
     }
 
     @Override
-    public void setRightIconDrawable(Drawable drawable) {
+    public void setActionBarRightIconDrawable(Drawable drawable) {
         MActionbar mActionBar = mRootView.getMActionBar();
-        if (mActionBar != null) mActionBar.setRightIconDrawable(drawable);
+        if (mActionBar != null) mActionBar.setActionBarRightIconDrawable(drawable);
     }
 
     @Override
-    public void setRightIconRes(int drawableRes) {
-        setRightIconDrawable(getResources().getDrawable(drawableRes));
+    public void setActionBarRightIconRes(int drawableRes) {
+        setActionBarRightIconDrawable(getResources().getDrawable(drawableRes));
     }
 
     @Override
-    public void setRightIconVisible(boolean visible) {
+    public void setActionBarRightIconVisible(boolean visible) {
         MActionbar mActionBar = mRootView.getMActionBar();
-        if (mActionBar != null) mActionBar.setRightIconVisible(visible);
+        if (mActionBar != null) mActionBar.setActionBarRightIconVisible(visible);
     }
 
     @Override
-    public void setRightTextString(String rightTextStr) {
+    public void setActionBarRightTextString(String rightTextStr) {
         MActionbar mActionBar = mRootView.getMActionBar();
-        if (mActionBar != null) mActionBar.setRightTextString(rightTextStr);
+        if (mActionBar != null) mActionBar.setActionBarRightTextString(rightTextStr);
     }
 
     @Override
-    public void setRightTextRes(int rightTextRes) {
-        setRightTextString(getResources().getString(rightTextRes));
+    public void setActionBarRightTextRes(int rightTextRes) {
+        setActionBarRightTextString(getResources().getString(rightTextRes));
     }
 
     @Override
-    public void setRightTextVisible(boolean visible) {
+    public void setActionBarRightTextVisible(boolean visible) {
         MActionbar mActionBar = mRootView.getMActionBar();
-        if (mActionBar != null) mActionBar.setRightTextVisible(visible);
+        if (mActionBar != null) mActionBar.setActionBarRightTextVisible(visible);
     }
 
     @Override
-    public void setRightTextColor(int color) {
+    public void setActionBarRightTextColor(int color) {
         MActionbar mActionBar = mRootView.getMActionBar();
-        if (mActionBar != null) mActionBar.setRightTextColor(color);
+        if (mActionBar != null) mActionBar.setActionBarRightTextColor(color);
     }
 
     @Override
-    public void setRightTextColorRes(int colorRes) {
-        setRightTextColor(getResources().getColor(colorRes));
+    public void setActionBarRightTextColorRes(int colorRes) {
+        setActionBarRightTextColor(getResources().getColor(colorRes));
     }
 
     @Override
-    public void setLeftIconDrawable(Drawable drawable) {
+    public void setActionBarLeftIconDrawable(Drawable drawable) {
         MActionbar mActionBar = mRootView.getMActionBar();
-        if (mActionBar != null) mActionBar.setLeftIconDrawable(drawable);
+        if (mActionBar != null) mActionBar.setActionBarLeftIconDrawable(drawable);
     }
 
     @Override
-    public void setLeftIconRes(int drawableRes) {
-        setLeftIconDrawable(getResources().getDrawable(drawableRes));
+    public void setActionBarLeftIconRes(int drawableRes) {
+        setActionBarLeftIconDrawable(getResources().getDrawable(drawableRes));
     }
 
     @Override
-    public void setLeftIconVisible(boolean visible) {
+    public void setActionBarLeftIconVisible(boolean visible) {
         MActionbar mActionBar = mRootView.getMActionBar();
-        if (mActionBar != null) mActionBar.setLeftIconVisible(visible);
+        if (mActionBar != null) mActionBar.setActionBarLeftIconVisible(visible);
     }
 
     @Override
-    public void setLeftTextString(String leftTextStr) {
+    public void setActionBarLeftTextString(String leftTextStr) {
         MActionbar mActionBar = mRootView.getMActionBar();
-        if (mActionBar != null) mActionBar.setLeftTextString(leftTextStr);
+        if (mActionBar != null) mActionBar.setActionBarLeftTextString(leftTextStr);
     }
 
     @Override
-    public void setLeftTextRes(int leftTextRes) {
-        setLeftTextString(getResources().getString(leftTextRes));
+    public void setActionBarLeftTextRes(int leftTextRes) {
+        setActionBarLeftTextString(getResources().getString(leftTextRes));
     }
 
     @Override
-    public void setLeftTextVisible(boolean visible) {
+    public void setActionBarLeftTextVisible(boolean visible) {
         MActionbar mActionBar = mRootView.getMActionBar();
-        if (mActionBar != null) mActionBar.setLeftTextVisible(visible);
+        if (mActionBar != null) mActionBar.setActionBarLeftTextVisible(visible);
     }
 
     @Override
-    public void setLeftTextColor(int color) {
+    public void setActionBarLeftTextColor(int color) {
         MActionbar mActionBar = mRootView.getMActionBar();
-        if (mActionBar != null) mActionBar.setLeftTextColor(color);
+        if (mActionBar != null) mActionBar.setActionBarLeftTextColor(color);
     }
 
     @Override
-    public void setLeftTextColorRes(int colorRes) {
-        setLeftTextColor(getResources().getColor(colorRes));
+    public void setActionBarLeftTextColorRes(int colorRes) {
+        setActionBarLeftTextColor(getResources().getColor(colorRes));
     }
 
     @Override
@@ -440,20 +440,20 @@ public class BaseActivity extends AppCompatActivity implements IMStatusBar, IMAc
     }
 
     @Override
-    public void setBottomLineVisible(boolean visible) {
+    public void setActionBarBottomLineVisible(boolean visible) {
         MActionbar mActionBar = mRootView.getMActionBar();
-        if (mActionBar != null) mActionBar.setBottomLineVisible(visible);
+        if (mActionBar != null) mActionBar.setActionBarBottomLineVisible(visible);
     }
 
     @Override
-    public void setBottomLineColor(int color) {
+    public void setActionBarBottomLineColor(int color) {
         MActionbar mActionBar = mRootView.getMActionBar();
-        if (mActionBar != null) mActionBar.setBottomLineColor(color);
+        if (mActionBar != null) mActionBar.setActionBarBottomLineColor(color);
     }
 
     @Override
-    public void setBottomLineColorRes(int colorRes) {
-        setBottomLineColor(getResources().getColor(colorRes));
+    public void setActionBarBottomLineColorRes(int colorRes) {
+        setActionBarBottomLineColor(getResources().getColor(colorRes));
     }
 
     @Override

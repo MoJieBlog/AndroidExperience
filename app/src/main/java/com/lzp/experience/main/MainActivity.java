@@ -1,9 +1,12 @@
 package com.lzp.experience.main;
 
-import android.app.FragmentManager;
-import android.app.FragmentTransaction;
+import android.animation.Animator;
+import android.animation.AnimatorSet;
+import android.animation.ObjectAnimator;
 import android.os.Bundle;
+import android.support.v4.app.FragmentTransaction;
 import android.view.View;
+import android.view.animation.AccelerateInterpolator;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -13,36 +16,48 @@ import com.lzp.base.component.BaseActivity;
 import com.lzp.base.component.IBasePage;
 import com.lzp.experience.R;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.InjectView;
+
 
 public class MainActivity extends BaseActivity implements IBasePage, View.OnClickListener {
 
-    @InjectView(R.id.main_container)
+    public static final int CODE_TAB_ONE = 0;
+    public static final int CODE_TAB_TWO = 1;
+    public static final int CODE_TAB_THREE = 2;
+
+    private static final int CODE_TAB_NON = -1;
+    @BindView(R.id.main_container)
     FrameLayout mainContainer;
-    @InjectView(R.id.iv_main_tab_one)
+    @BindView(R.id.iv_main_tab_one)
     ImageView ivMainTabOne;
-    @InjectView(R.id.tv_main_tab_one)
+    @BindView(R.id.tv_main_tab_one)
     TextView tvMainTabOne;
-    @InjectView(R.id.ll_main_tab_one)
+    @BindView(R.id.ll_main_tab_one)
     LinearLayout llMainTabOne;
-    @InjectView(R.id.iv_main_tab_two)
+    @BindView(R.id.iv_main_tab_two)
     ImageView ivMainTabTwo;
-    @InjectView(R.id.tv_main_tab_two)
+    @BindView(R.id.tv_main_tab_two)
     TextView tvMainTabTwo;
-    @InjectView(R.id.ll_main_tab_two)
+    @BindView(R.id.ll_main_tab_two)
     LinearLayout llMainTabTwo;
-    @InjectView(R.id.iv_main_tab_three)
+    @BindView(R.id.iv_main_tab_three)
     ImageView ivMainTabThree;
-    @InjectView(R.id.tv_amin_tab_three)
+    @BindView(R.id.tv_amin_tab_three)
     TextView tvAminTabThree;
-    @InjectView(R.id.ll_main_tab_three)
+    @BindView(R.id.ll_main_tab_three)
     LinearLayout llMainTabThree;
-    private int currentTabIndex = 0;
-    private MainBaseFragment currentFragment;//当前选中的Fragment
+
+    private int lastIndex = CODE_TAB_NON;
+    private int currentTabIndex = CODE_TAB_TWO;
     private OneFragment oneFragment;
     private TwoFragment twoFragment;
     private ThreeFragment threeFragment;
+
+    private List<MainBaseFragment> pageList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,16 +65,18 @@ public class MainActivity extends BaseActivity implements IBasePage, View.OnClic
         setNeedActionBar(false);
         setNeedStatusBar(false);
         setContentView(R.layout.activity_main);
-        ButterKnife.inject(this);
-        setListener();
+        ButterKnife.bind(this);
     }
+
 
     @Override
     public void readArguments(Bundle bundle) {
+
     }
 
     @Override
     public void writeArguments(Bundle bundle) {
+
     }
 
     @Override
@@ -73,11 +90,48 @@ public class MainActivity extends BaseActivity implements IBasePage, View.OnClic
         if (threeFragment == null) {
             threeFragment = ThreeFragment.getFragment();
         }
-        FragmentManager fragmentManager = getFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.add(R.id.main_container, oneFragment);
-        fragmentTransaction.show(oneFragment);
+
+        pageList.clear();
+        pageList.add(oneFragment);
+        pageList.add(twoFragment);
+        pageList.add(threeFragment);
+        switchFragment();
+        switchTab();
     }
+
+    private void setSelectedTab() {
+        switch (currentTabIndex) {
+            case CODE_TAB_ONE:
+                ivMainTabOne.setImageDrawable(getResources().getDrawable(R.mipmap.main_tab1_selected));
+                ivMainTabTwo.setImageDrawable(getResources().getDrawable(R.mipmap.main_tab2_normal));
+                ivMainTabThree.setImageDrawable(getResources().getDrawable(R.mipmap.main_tab3_normal));
+
+                tvMainTabOne.setTextColor(getResources().getColor(R.color.theme_tab_selected));
+                tvMainTabTwo.setTextColor(getResources().getColor(R.color.theme_tab_unselected));
+                tvAminTabThree.setTextColor(getResources().getColor(R.color.theme_tab_unselected));
+
+                break;
+            case CODE_TAB_TWO:
+                ivMainTabTwo.setImageDrawable(getResources().getDrawable(R.mipmap.main_tab2_selected));
+                ivMainTabOne.setImageDrawable(getResources().getDrawable(R.mipmap.main_tab1_normal));
+                ivMainTabThree.setImageDrawable(getResources().getDrawable(R.mipmap.main_tab3_normal));
+
+                tvMainTabOne.setTextColor(getResources().getColor(R.color.theme_tab_unselected));
+                tvMainTabTwo.setTextColor(getResources().getColor(R.color.theme_tab_selected));
+                tvAminTabThree.setTextColor(getResources().getColor(R.color.theme_tab_unselected));
+                break;
+            case CODE_TAB_THREE:
+                ivMainTabThree.setImageDrawable(getResources().getDrawable(R.mipmap.main_tab3_selected));
+                ivMainTabTwo.setImageDrawable(getResources().getDrawable(R.mipmap.main_tab2_normal));
+                ivMainTabOne.setImageDrawable(getResources().getDrawable(R.mipmap.main_tab1_normal));
+
+                tvMainTabOne.setTextColor(getResources().getColor(R.color.theme_tab_unselected));
+                tvMainTabTwo.setTextColor(getResources().getColor(R.color.theme_tab_unselected));
+                tvAminTabThree.setTextColor(getResources().getColor(R.color.theme_tab_selected));
+                break;
+        }
+    }
+
 
     @Override
     public void setListener() {
@@ -94,49 +148,93 @@ public class MainActivity extends BaseActivity implements IBasePage, View.OnClic
 
     private void switchTab() {
         switch (currentTabIndex) {
-            case 0:
+            case CODE_TAB_ONE:
+                doAnimation(llMainTabOne);
                 break;
-            case 1:
+            case CODE_TAB_TWO:
+                doAnimation(llMainTabTwo);
                 break;
-            case 2:
+            case CODE_TAB_THREE:
+                doAnimation(llMainTabThree);
                 break;
+        }
+        setSelectedTab();
+    }
+
+    private boolean doAnimator = false;
+
+    private void doAnimation(View view) {
+        if (!doAnimator) {
+            AnimatorSet set = new AnimatorSet();
+            ObjectAnimator animatorX = ObjectAnimator.ofFloat(view, "scaleX", 1.0f, 1.5f, 0.8f, 1f);
+            ObjectAnimator animatorY = ObjectAnimator.ofFloat(view, "scaleY", 1.0f, 1.2f, 0.8f, 1f);
+            set.setDuration(200);
+            set.setInterpolator(new AccelerateInterpolator(0.5f));
+            set.play(animatorX).with(animatorY);
+            set.start();
+            set.addListener(new Animator.AnimatorListener() {
+                @Override
+                public void onAnimationStart(Animator animator) {
+                    doAnimator = true;
+                }
+
+                @Override
+                public void onAnimationEnd(Animator animator) {
+                    doAnimator = false;
+                }
+
+                @Override
+                public void onAnimationCancel(Animator animator) {
+                    doAnimator = false;
+                }
+
+                @Override
+                public void onAnimationRepeat(Animator animator) {
+                }
+            });
         }
     }
 
     @Override
     public void onClick(View v) {
-
-        FragmentManager fragmentManager = getFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        if (!oneFragment.isAdded()) {
-            fragmentTransaction.add(R.id.main_container, oneFragment);
-        }
-        if (!twoFragment.isAdded()) {
-            fragmentTransaction.add(R.id.main_container, twoFragment);
-        }
-        if (!threeFragment.isAdded()) {
-            fragmentTransaction.add(R.id.main_container, threeFragment);
-        }
-        fragmentTransaction.hide(currentFragment);
         switch (v.getId()) {
             case R.id.ll_main_tab_one:
-                currentFragment = oneFragment;
-                currentTabIndex = 0;
-                switchTab();
+                currentTabIndex = CODE_TAB_ONE;
                 break;
             case R.id.ll_main_tab_two:
-                currentFragment = twoFragment;
-                currentTabIndex = 1;
-                switchTab();
+                currentTabIndex = CODE_TAB_TWO;
                 break;
             case R.id.ll_main_tab_three:
-                currentTabIndex = 2;
-                currentFragment = threeFragment;
-                switchTab();
+                currentTabIndex = CODE_TAB_THREE;
                 break;
         }
-        fragmentTransaction.show(currentFragment);
-        fragmentTransaction.commit();
+
+        switchFragment();
+        switchTab();
+    }
+
+    /**
+     * 切换Fragment
+     */
+    private void switchFragment() {
+        if (currentTabIndex != lastIndex && lastIndex != CODE_TAB_NON) {//选择了不同的tab，切换
+            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+            transaction.hide(pageList.get(lastIndex));
+            lastIndex = currentTabIndex;
+            MainBaseFragment mainBaseFragment = pageList.get(currentTabIndex);
+            if (!mainBaseFragment.isAdded()) {
+                transaction.add(R.id.main_container, mainBaseFragment).show(mainBaseFragment).commit();
+            } else {
+                transaction.show(mainBaseFragment).commit();
+            }
+        } else if (lastIndex == CODE_TAB_NON) {//首次进入，设置默认显示
+            MainBaseFragment mainBaseFragment = pageList.get(currentTabIndex);
+            getSupportFragmentManager().beginTransaction().add(R.id.main_container, mainBaseFragment)
+                    .show(mainBaseFragment)
+                    .commit();
+            lastIndex = currentTabIndex;
+        } else {//相同tab点击，不做切换
+        }
     }
 
 }

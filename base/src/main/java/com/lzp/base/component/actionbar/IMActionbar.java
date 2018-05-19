@@ -10,30 +10,30 @@ import com.lzp.base.component.IBase;
 
 public interface IMActionbar extends IBase {
 
-    void setActionbarBackgroundColor(int color);
-    void setActionbarBackgroundColorRes(int colorRes);
+    void setActionBarBackgroundColor(int color);
+    void setActionBarBackgroundColorRes(int colorRes);
 
-    void setRightIconDrawable(Drawable drawable);
-    void setRightIconRes(int drawableRes);
-    void setRightIconVisible(boolean visible);
+    void setActionBarRightIconDrawable(Drawable drawable);
+    void setActionBarRightIconRes(int drawableRes);
+    void setActionBarRightIconVisible(boolean visible);
 
-    void setRightTextString(String rightTextStr);
-    void setRightTextRes(int rightTextRes);
-    void setRightTextVisible(boolean visible);
+    void setActionBarRightTextString(String rightTextStr);
+    void setActionBarRightTextRes(int rightTextRes);
+    void setActionBarRightTextVisible(boolean visible);
 
-    void setRightTextColor(int color);
-    void setRightTextColorRes(int colorRes);
+    void setActionBarRightTextColor(int color);
+    void setActionBarRightTextColorRes(int colorRes);
 
-    void setLeftIconDrawable(Drawable drawable);
-    void setLeftIconRes(int drawableRes);
-    void setLeftIconVisible(boolean visible);
+    void setActionBarLeftIconDrawable(Drawable drawable);
+    void setActionBarLeftIconRes(int drawableRes);
+    void setActionBarLeftIconVisible(boolean visible);
 
-    void setLeftTextString(String leftTextStr);
-    void setLeftTextRes(int leftTextRes);
-    void setLeftTextVisible(boolean visible);
+    void setActionBarLeftTextString(String leftTextStr);
+    void setActionBarLeftTextRes(int leftTextRes);
+    void setActionBarLeftTextVisible(boolean visible);
 
-    void setLeftTextColor(int color);
-    void setLeftTextColorRes(int colorRes);
+    void setActionBarLeftTextColor(int color);
+    void setActionBarLeftTextColorRes(int colorRes);
 
     void setActionBarTitle(String titleStr);
     void setActionBarTitleRes(int titleRes);
@@ -41,7 +41,7 @@ public interface IMActionbar extends IBase {
     void setActionBarTitleColor(int color);
     void setActionBarTitleColorRes(int colorRes);
 
-    void setBottomLineVisible(boolean visible);
-    void setBottomLineColor(int color);
-    void setBottomLineColorRes(int colorRes);
+    void setActionBarBottomLineVisible(boolean visible);
+    void setActionBarBottomLineColor(int color);
+    void setActionBarBottomLineColorRes(int colorRes);
 }

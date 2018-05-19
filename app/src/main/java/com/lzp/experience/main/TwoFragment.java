@@ -18,6 +18,8 @@ public class TwoFragment extends MainBaseFragment implements IBasePage{
     @Override
     public void onMCreate(Bundle savedInstanceState) {
         super.onMCreate(savedInstanceState);
+        setNeedActionBar(false);
+        setNeedStatusBar(false);
         setContentView(R.layout.fragment_two);
     }
 

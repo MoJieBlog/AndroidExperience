@@ -1,11 +1,11 @@
 package com.lzp.base.component;
 
-import android.app.Fragment;
 import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -132,93 +132,93 @@ public class BaseFragment extends Fragment implements IMRootView, IMStatusBar, I
     }
 
     @Override
-    public void setActionbarBackgroundColor(int color) {
-        rootView.getMActionBar().setActionbarBackgroundColor(color);
+    public void setActionBarBackgroundColor(int color) {
+        rootView.getMActionBar().setActionBarBackgroundColor(color);
     }
 
     @Override
-    public void setActionbarBackgroundColorRes(int colorRes) {
-        rootView.getMActionBar().setActionbarBackgroundColorRes(colorRes);
+    public void setActionBarBackgroundColorRes(int colorRes) {
+        rootView.getMActionBar().setActionBarBackgroundColorRes(colorRes);
     }
 
     @Override
-    public void setRightIconDrawable(Drawable drawable) {
-        rootView.getMActionBar().setRightIconDrawable(drawable);
+    public void setActionBarRightIconDrawable(Drawable drawable) {
+        rootView.getMActionBar().setActionBarRightIconDrawable(drawable);
     }
 
     @Override
-    public void setRightIconRes(int drawableRes) {
-        rootView.getMActionBar().setRightIconRes(drawableRes);
+    public void setActionBarRightIconRes(int drawableRes) {
+        rootView.getMActionBar().setActionBarRightIconRes(drawableRes);
     }
 
     @Override
-    public void setRightIconVisible(boolean visible) {
-        rootView.getMActionBar().setRightIconVisible(visible);
+    public void setActionBarRightIconVisible(boolean visible) {
+        rootView.getMActionBar().setActionBarRightIconVisible(visible);
     }
 
     @Override
-    public void setRightTextString(String rightTextStr) {
-        rootView.getMActionBar().setRightTextString(rightTextStr);
+    public void setActionBarRightTextString(String rightTextStr) {
+        rootView.getMActionBar().setActionBarRightTextString(rightTextStr);
     }
 
     @Override
-    public void setRightTextRes(int rightTextRes) {
-        rootView.getMActionBar().setRightTextRes(rightTextRes);
+    public void setActionBarRightTextRes(int rightTextRes) {
+        rootView.getMActionBar().setActionBarRightTextRes(rightTextRes);
     }
 
     @Override
-    public void setRightTextVisible(boolean visible) {
-        rootView.getMActionBar().setRightTextVisible(visible);
+    public void setActionBarRightTextVisible(boolean visible) {
+        rootView.getMActionBar().setActionBarRightTextVisible(visible);
     }
 
     @Override
-    public void setRightTextColor(int color) {
-        rootView.getMActionBar().setRightTextColor(color);
+    public void setActionBarRightTextColor(int color) {
+        rootView.getMActionBar().setActionBarRightTextColor(color);
     }
 
     @Override
-    public void setRightTextColorRes(int colorRes) {
-        rootView.getMActionBar().setRightTextColorRes(colorRes);
+    public void setActionBarRightTextColorRes(int colorRes) {
+        rootView.getMActionBar().setActionBarRightTextColorRes(colorRes);
     }
 
     @Override
-    public void setLeftIconDrawable(Drawable drawable) {
-        rootView.getMActionBar().setLeftIconDrawable(drawable);
+    public void setActionBarLeftIconDrawable(Drawable drawable) {
+        rootView.getMActionBar().setActionBarLeftIconDrawable(drawable);
     }
 
     @Override
-    public void setLeftIconRes(int drawableRes) {
-        rootView.getMActionBar().setLeftIconRes(drawableRes);
+    public void setActionBarLeftIconRes(int drawableRes) {
+        rootView.getMActionBar().setActionBarLeftIconRes(drawableRes);
     }
 
     @Override
-    public void setLeftIconVisible(boolean visible) {
-        rootView.getMActionBar().setLeftIconVisible(visible);
+    public void setActionBarLeftIconVisible(boolean visible) {
+        rootView.getMActionBar().setActionBarLeftIconVisible(visible);
     }
 
     @Override
-    public void setLeftTextString(String leftTextStr) {
-        rootView.getMActionBar().setLeftTextString(leftTextStr);
+    public void setActionBarLeftTextString(String leftTextStr) {
+        rootView.getMActionBar().setActionBarLeftTextString(leftTextStr);
     }
 
     @Override
-    public void setLeftTextRes(int leftTextRes) {
-        rootView.getMActionBar().setLeftTextRes(leftTextRes);
+    public void setActionBarLeftTextRes(int leftTextRes) {
+        rootView.getMActionBar().setActionBarLeftTextRes(leftTextRes);
     }
 
     @Override
-    public void setLeftTextVisible(boolean visible) {
-        rootView.getMActionBar().setLeftTextVisible(visible);
+    public void setActionBarLeftTextVisible(boolean visible) {
+        rootView.getMActionBar().setActionBarLeftTextVisible(visible);
     }
 
     @Override
-    public void setLeftTextColor(int color) {
-        rootView.getMActionBar().setLeftTextColor(color);
+    public void setActionBarLeftTextColor(int color) {
+        rootView.getMActionBar().setActionBarLeftTextColor(color);
     }
 
     @Override
-    public void setLeftTextColorRes(int colorRes) {
-        rootView.getMActionBar().setLeftTextColorRes(colorRes);
+    public void setActionBarLeftTextColorRes(int colorRes) {
+        rootView.getMActionBar().setActionBarLeftTextColorRes(colorRes);
     }
 
     @Override
@@ -242,18 +242,18 @@ public class BaseFragment extends Fragment implements IMRootView, IMStatusBar, I
     }
 
     @Override
-    public void setBottomLineVisible(boolean visible) {
-        rootView.getMActionBar().setBottomLineVisible(visible);
+    public void setActionBarBottomLineVisible(boolean visible) {
+        rootView.getMActionBar().setActionBarBottomLineVisible(visible);
     }
 
     @Override
-    public void setBottomLineColor(int color) {
-        rootView.getMActionBar().setBottomLineColor(color);
+    public void setActionBarBottomLineColor(int color) {
+        rootView.getMActionBar().setActionBarBottomLineColor(color);
     }
 
     @Override
-    public void setBottomLineColorRes(int colorRes) {
-        rootView.getMActionBar().setBottomLineColorRes(colorRes);
+    public void setActionBarBottomLineColorRes(int colorRes) {
+        rootView.getMActionBar().setActionBarBottomLineColorRes(colorRes);
     }
 
     @Override

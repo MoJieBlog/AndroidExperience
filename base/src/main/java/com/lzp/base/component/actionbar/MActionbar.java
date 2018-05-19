@@ -76,96 +76,96 @@ public class MActionbar implements IMActionbar {
     }
 
     @Override
-    public void setActionbarBackgroundColor(int color) {
+    public void setActionBarBackgroundColor(int color) {
         if (rootView != null) {
             rootView.setBackgroundColor(color);
         }
     }
 
     @Override
-    public void setActionbarBackgroundColorRes(int colorRes) {
-        setActionbarBackgroundColor(resources.getColor(colorRes));
+    public void setActionBarBackgroundColorRes(int colorRes) {
+        setActionBarBackgroundColor(resources.getColor(colorRes));
     }
 
     @Override
-    public void setRightIconDrawable(Drawable drawable) {
+    public void setActionBarRightIconDrawable(Drawable drawable) {
         if (rightIcon != null)
             rightIcon.setImageDrawable(drawable);
     }
 
     @Override
-    public void setRightIconRes(int drawableRes) {
-        setRightIconDrawable(resources.getDrawable(drawableRes));
+    public void setActionBarRightIconRes(int drawableRes) {
+        setActionBarRightIconDrawable(resources.getDrawable(drawableRes));
     }
 
     @Override
-    public void setRightIconVisible(boolean visible) {
+    public void setActionBarRightIconVisible(boolean visible) {
         if (rightIcon != null) rightIcon.setVisibility(visible ? View.VISIBLE : View.GONE);
     }
 
     @Override
-    public void setRightTextString(String rightTextStr) {
+    public void setActionBarRightTextString(String rightTextStr) {
         if (rightText != null) rightText.setText(rightTextStr);
     }
 
     @Override
-    public void setRightTextRes(int rightTextRes) {
-        setRightTextString(resources.getString(rightTextRes));
+    public void setActionBarRightTextRes(int rightTextRes) {
+        setActionBarRightTextString(resources.getString(rightTextRes));
     }
 
     @Override
-    public void setRightTextVisible(boolean visible) {
+    public void setActionBarRightTextVisible(boolean visible) {
         if (rightText != null) rightText.setVisibility(visible ? View.VISIBLE : View.GONE);
     }
 
     @Override
-    public void setRightTextColor(int color) {
+    public void setActionBarRightTextColor(int color) {
         if (rightText != null) rightText.setTextColor(color);
     }
 
     @Override
-    public void setRightTextColorRes(int colorRes) {
-        setRightTextColor(resources.getColor(colorRes));
+    public void setActionBarRightTextColorRes(int colorRes) {
+        setActionBarRightTextColor(resources.getColor(colorRes));
     }
 
     @Override
-    public void setLeftIconDrawable(Drawable drawable) {
+    public void setActionBarLeftIconDrawable(Drawable drawable) {
         if (leftIcon != null) leftIcon.setImageDrawable(drawable);
     }
 
     @Override
-    public void setLeftIconRes(int drawableRes) {
-        setLeftIconDrawable(resources.getDrawable(drawableRes));
+    public void setActionBarLeftIconRes(int drawableRes) {
+        setActionBarLeftIconDrawable(resources.getDrawable(drawableRes));
     }
 
     @Override
-    public void setLeftIconVisible(boolean visible) {
+    public void setActionBarLeftIconVisible(boolean visible) {
         if (leftIcon != null) leftIcon.setVisibility(visible ? View.VISIBLE : View.GONE);
     }
 
     @Override
-    public void setLeftTextString(String leftTextStr) {
+    public void setActionBarLeftTextString(String leftTextStr) {
         if (leftText != null) leftText.setText(leftTextStr);
     }
 
     @Override
-    public void setLeftTextRes(int leftTextRes) {
-        setLeftTextString(resources.getString(leftTextRes));
+    public void setActionBarLeftTextRes(int leftTextRes) {
+        setActionBarLeftTextString(resources.getString(leftTextRes));
     }
 
     @Override
-    public void setLeftTextVisible(boolean visible) {
+    public void setActionBarLeftTextVisible(boolean visible) {
         if (leftText != null) leftText.setVisibility(visible ? View.VISIBLE : View.GONE);
     }
 
     @Override
-    public void setLeftTextColor(int color) {
+    public void setActionBarLeftTextColor(int color) {
         if (leftText != null) leftText.setTextColor(color);
     }
 
     @Override
-    public void setLeftTextColorRes(int colorRes) {
-        setLeftTextColor(resources.getColor(colorRes));
+    public void setActionBarLeftTextColorRes(int colorRes) {
+        setActionBarLeftTextColor(resources.getColor(colorRes));
     }
 
     @Override
@@ -189,18 +189,18 @@ public class MActionbar implements IMActionbar {
     }
 
     @Override
-    public void setBottomLineVisible(boolean visible) {
+    public void setActionBarBottomLineVisible(boolean visible) {
         if (bottomLine != null) bottomLine.setVisibility(visible ? View.VISIBLE : View.GONE);
     }
 
     @Override
-    public void setBottomLineColor(int color) {
+    public void setActionBarBottomLineColor(int color) {
         if (bottomLine != null) bottomLine.setBackgroundColor(color);
     }
 
     @Override
-    public void setBottomLineColorRes(int colorRes) {
-        setBottomLineColor(resources.getColor(colorRes));
+    public void setActionBarBottomLineColorRes(int colorRes) {
+        setActionBarBottomLineColor(resources.getColor(colorRes));
     }
 
     @Override

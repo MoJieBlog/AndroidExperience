@@ -55,11 +55,8 @@ public class MxActivityLifecycleCallbacks implements Application.ActivityLifecyc
         ParallaxHelper.getInstance().onActivityStopped(activity);
         activityCount--;
         if (activityCount == 0) {
-           /* // 前台切换到后台
-            // 发送上报执行
-            MarkDotManager.getInstance().updateCurrentSessionEndTime();
-            MarkDotManager.getInstance().saveLastHandlerTime();
-            MarkDotManager.getInstance().appMarkDotReport();*/
+           // 前台切换到后台
+
         }
     }
 

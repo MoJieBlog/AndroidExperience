@@ -34,7 +34,15 @@ public class OneFragment extends MainBaseFragment implements IBasePage{
 
     @Override
     public void initView() {
+        initActionBar();
+    }
 
+    private void initActionBar() {
+        setStatusBarColorRes(R.color.theme);
+        setActionBarBackgroundColorRes(R.color.theme);
+        setActionBarTitleRes(R.string.app_name);
+        setActionBarTitleColorRes(R.color.ffffff);
+        setActionBarBottomLineVisible(false);
     }
 
     @Override
