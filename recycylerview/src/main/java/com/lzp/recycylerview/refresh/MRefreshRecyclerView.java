@@ -10,11 +10,17 @@ import android.util.AttributeSet;
 
 public class MRefreshRecyclerView extends SwipeRefreshLayout {
 
+    private boolean canLoadmore = true;
     public MRefreshRecyclerView(Context context) {
         super(context);
     }
 
     public MRefreshRecyclerView(Context context, AttributeSet attrs) {
         super(context, attrs);
+    }
+
+
+    public boolean canLoadMore(){
+        return canLoadmore;
     }
 }
