@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.lzp.experience.R;
+import com.lzp.recycylerview.refresh.MRefreshRecyclerViewAdapter;
 import com.lzp.recycylerview.view.MRecyclerViewAdapter;
 
 import java.util.ArrayList;
@@ -20,12 +21,13 @@ import butterknife.ButterKnife;
  * Created by Li Xiaopeng on 18/5/21.
  */
 
-public class MainTwoAdapter extends MRecyclerViewAdapter {
+public class MainTwoAdapter extends MRefreshRecyclerViewAdapter {
 
     private Context context;
     private List<String> list = new ArrayList<>();
 
     public MainTwoAdapter(Context context) {
+        super(context);
         this.context = context;
     }
 

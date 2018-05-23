@@ -45,19 +45,19 @@ public class DefaultLoadingView extends LoadingLayout {
         tvLoad = rootView.findViewById(R.id.tv_load);
         animViewWidth = ViewGroup.LayoutParams.MATCH_PARENT;
         animViewHeight =
-                (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 60,
+                (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 30,
                         mResources.getDisplayMetrics());
         addView(rootView);
     }
 
-    public void onLoadAll(String loadAllDesc){
-        tvLoad.setText(loadAllDesc);
-        pbLoad.setVisibility(GONE);
-    }
+    public void onLoadFinish(boolean showBottomView,String loadFail){
+        if (showBottomView){
+            tvLoad.setText(loadFail);
+            pbLoad.setVisibility(GONE);
+        }else{
+            setVisibility(GONE);
+        }
 
-    public void loadFail(String loadFial){
-        tvLoad.setText(loadFial);
-        pbLoad.setVisibility(GONE);
     }
 
     @Override
@@ -83,7 +83,7 @@ public class DefaultLoadingView extends LoadingLayout {
 
     @Override
     public void onRefreshOrLoadFinish() {
-        setVisibility(VISIBLE);
+        onLoadFinish(false,"");
     }
 
     @Override

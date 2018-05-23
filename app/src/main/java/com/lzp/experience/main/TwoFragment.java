@@ -2,6 +2,7 @@ package com.lzp.experience.main;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -13,6 +14,8 @@ import com.lxp.utils.ToastUtils;
 import com.lzp.base.component.IBasePage;
 import com.lzp.experience.R;
 import com.lzp.experience.main.adapter.MainTwoAdapter;
+import com.lzp.recycylerview.refresh.ILoadListener;
+import com.lzp.recycylerview.refresh.MRefreshRecyclerView;
 import com.lzp.recycylerview.view.MRecyclerView;
 
 import java.util.ArrayList;
@@ -27,8 +30,9 @@ import butterknife.Unbinder;
  */
 
 public class TwoFragment extends MainBaseFragment implements IBasePage {
+    private static final String TAG = "TwoFragment";
     @BindView(R.id.rcv)
-    MRecyclerView rcv;
+    MRefreshRecyclerView rcv;
     Unbinder unbinder;
 
     private Context context;
@@ -87,6 +91,19 @@ public class TwoFragment extends MainBaseFragment implements IBasePage {
                 ToastUtils.setToast(context,"长按了"+position);
                 LogUtils.logE("长按了", "onItemLongClick: "+(position+1));
                 return true;
+            }
+        });
+
+        rcv.setOnLoadListener(new ILoadListener() {
+            @Override
+            public void onLoadMore() {
+                LogUtils.logE(TAG, "onLoadMore: ");
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        rcv.stopLoadMore(true,"加载完成");
+                    }
+                },2000);
             }
         });
     }

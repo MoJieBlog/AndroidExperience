@@ -4,7 +4,7 @@
     android:layout_height="match_parent">
 
 
-    <com.lzp.recycylerview.view.MRecyclerView
+    <com.lzp.recycylerview.refresh.MRefreshRecyclerView
         android:id="@+id/rcv"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
