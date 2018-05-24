@@ -79,6 +79,8 @@ public class DefaultLoadingView extends LoadingLayout {
     @Override
     public void onRefreshingOrLoading() {
         setVisibility(VISIBLE);
+        pbLoad.setVisibility(VISIBLE);
+        tvLoad.setText(mContext.getResources().getString(R.string.loading));
     }
 
     @Override

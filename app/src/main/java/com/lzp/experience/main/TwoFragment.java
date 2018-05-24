@@ -74,22 +74,22 @@ public class TwoFragment extends MainBaseFragment implements IBasePage {
     }
 
     private void initRcv() {
-        rcv.setLayoutManager(new LinearLayoutManager(context,LinearLayoutManager.VERTICAL,false));
+        rcv.setLayoutManager(new LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false));
         mainTwoAdapter = new MainTwoAdapter(context);
         rcv.setAdapter(mainTwoAdapter);
         rcv.setOnItemClickListener(new MRecyclerView.OnItemClickListener() {
             @Override
             public void onItemClick(RecyclerView recyclerView, View view, int position, long id) {
-                ToastUtils.setToast(context,"点击了"+position);
-                LogUtils.logE("点击了", "onItemClick: "+(position+1));
+                ToastUtils.setToast(context, "点击了" + position);
+                LogUtils.logE("点击了", "onItemClick: " + (position + 1));
             }
         });
 
         rcv.setOnItemLongClickListener(new MRecyclerView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(RecyclerView recyclerView, View view, int position, long id) {
-                ToastUtils.setToast(context,"长按了"+position);
-                LogUtils.logE("长按了", "onItemLongClick: "+(position+1));
+                ToastUtils.setToast(context, "长按了" + position);
+                LogUtils.logE("长按了", "onItemLongClick: " + (position + 1));
                 return true;
             }
         });
@@ -101,9 +101,20 @@ public class TwoFragment extends MainBaseFragment implements IBasePage {
                 new Handler().postDelayed(new Runnable() {
                     @Override
                     public void run() {
-                        rcv.stopLoadMore(true,"加载完成");
+                        List<String> list = new ArrayList<>();
+
+                        for (int i = mainTwoAdapter.getList().size(); i < mainTwoAdapter.getList().size() + 10; i++) {
+                            list.add("加载了" + String.valueOf(i + 1));
+                        }
+                        mainTwoAdapter.loadMoreData(list);
+                        rcv.stopLoadMore();
+                        if (mainTwoAdapter.getList().size() >= 50) {
+
+                            rcv.stopLoadMoreWithDesc(true, "已加载全部数据");
+                            rcv.setCanLoadMore(false);
+                        }
                     }
-                },2000);
+                }, 1000);
             }
         });
     }
@@ -116,8 +127,8 @@ public class TwoFragment extends MainBaseFragment implements IBasePage {
     @Override
     public void getData() {
         List<String> list = new ArrayList<>();
-        for (int i=0;i<20;i++){
-            list.add(String.valueOf(i+1));
+        for (int i = 0; i < 20; i++) {
+            list.add(String.valueOf(i + 1));
         }
 
         mainTwoAdapter.refreshData(list);

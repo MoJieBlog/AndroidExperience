@@ -24,7 +24,8 @@ public class MRefreshRecyclerView extends SwipeRefreshLayout {
     private MRecyclerView recyclerView;
     private MRefreshRecyclerViewAdapter adapter;
 
-    private boolean canLoadMore = true;//是否可以加载更多
+    private boolean canShowLoadMore = true;//是否展示底部的item
+    private boolean canLoadMore = true;
     private ILoadListener loadListener;
 
     private DefaultLoadingView loadingView;
@@ -61,6 +62,14 @@ public class MRefreshRecyclerView extends SwipeRefreshLayout {
         return loadingView;
     }
 
+    public void setCanShowLoadMore(boolean canShowLoadMore) {
+        this.canShowLoadMore = canShowLoadMore;
+    }
+
+    public boolean isCanLoadMore() {
+        return canLoadMore;
+    }
+
     public void setCanLoadMore(boolean canLoadMore) {
         this.canLoadMore = canLoadMore;
     }
@@ -73,8 +82,8 @@ public class MRefreshRecyclerView extends SwipeRefreshLayout {
         return loadListener;
     }
 
-    public boolean canLoadMore(){
-        return canLoadMore;
+    public boolean isCanShowLoadMore() {
+        return canShowLoadMore;
     }
 
     public void setAutoLoadCount(int autoLoadCount) {
@@ -84,11 +93,13 @@ public class MRefreshRecyclerView extends SwipeRefreshLayout {
     }
 
     public void stopLoadMore(){
-        stopLoadMore(false,"");
-    }
-    public void stopLoadMore(boolean showTips,String desc){
         if (adapter!=null){
-            adapter.stopLoadMore(showTips,desc);
+            adapter.stopLoadMore();
+        }
+    }
+    public void stopLoadMoreWithDesc(boolean showTips,String desc){
+        if (adapter!=null){
+            adapter.stopLoadMoreWithDesc(showTips,desc);
         }
     }
 

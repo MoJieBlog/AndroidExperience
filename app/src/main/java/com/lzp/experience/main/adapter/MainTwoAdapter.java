@@ -41,6 +41,11 @@ public class MainTwoAdapter extends MRefreshRecyclerViewAdapter {
         notifyDataSetChanged();
     }
 
+    public void loadMoreData(List<String> list){
+        this.list.addAll(list);
+        notifyDataSetChanged();
+    }
+
     @Override
     public int getMItemCount() {
         return list.size();

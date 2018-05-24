@@ -33,12 +33,12 @@ public abstract class MRefreshRecyclerViewAdapter extends MRecyclerViewAdapter {
 
     @Override
     public int getItemCount() {
-        return super.getItemCount() + (recyclerView.canLoadMore() ? 1 : 0);
+        return super.getItemCount() + (recyclerView.isCanShowLoadMore() ? 1 : 0);
     }
 
     @Override
     public int getItemViewType(int position) {
-        if (recyclerView.canLoadMore() && position == getItemCount() - 1) {
+        if (recyclerView.isCanShowLoadMore() && position == getItemCount() - 1) {
             return ITEM_TYPE_LOAD_MORE;
         }
         return super.getItemViewType(position);
@@ -56,15 +56,15 @@ public abstract class MRefreshRecyclerViewAdapter extends MRecyclerViewAdapter {
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-        if (recyclerView.canLoadMore()) {
+        if (recyclerView.isCanLoadMore()){
             if (getItemCount() - autoLoadCount <= position && !isLoading) {
                 isLoading = true;
                 recyclerView.getLoadingView().onRefreshingOrLoading();
                 recyclerView.getLoadListener().onLoadMore();
             }
         }
-        if (getItemViewType(position) == ITEM_TYPE_LOAD_MORE) {
 
+        if (getItemViewType(position) == ITEM_TYPE_LOAD_MORE) {
         } else {
             super.onBindViewHolder(holder, position);
         }
@@ -74,9 +74,18 @@ public abstract class MRefreshRecyclerViewAdapter extends MRecyclerViewAdapter {
         this.autoLoadCount = autoLoadCount;
     }
 
-    public void stopLoadMore(boolean showTips, String desc) {
+    public void stopLoadMore() {
         if (recyclerView.getLoadingView() != null) {
+            isLoading = false;
+            recyclerView.getLoadingView().onLoadFinish(false, "");
+        }
+    }
+    public void stopLoadMoreWithDesc(boolean showTips,String desc) {
+        if (recyclerView.getLoadingView() != null&&recyclerView.isCanShowLoadMore()) {
+            recyclerView.getLoadingView().setVisibility(View.VISIBLE);
             recyclerView.getLoadingView().onLoadFinish(showTips, desc);
+        }else{
+            recyclerView.getLoadingView().setVisibility(View.GONE);
         }
     }
 
