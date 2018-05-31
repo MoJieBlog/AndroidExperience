@@ -57,7 +57,7 @@ public abstract class MRefreshRecyclerViewAdapter extends MRecyclerViewAdapter {
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
         if (recyclerView.isCanLoadMore()){
-            if (getItemCount() - autoLoadCount <= position && !isLoading) {
+            if (getItemCount() - autoLoadCount <= position && !isLoading&&(recyclerView.isCanShowLoadMore() ? getItemCount()>1 : getItemCount()>0)) {
                 isLoading = true;
                 recyclerView.getLoadingView().onRefreshingOrLoading();
                 recyclerView.getLoadListener().onLoadMore();

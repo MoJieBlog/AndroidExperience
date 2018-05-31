@@ -27,6 +27,7 @@ public class MRefreshRecyclerView extends SwipeRefreshLayout {
     private boolean canShowLoadMore = true;//是否展示底部的item
     private boolean canLoadMore = true;
     private ILoadListener loadListener;
+    private IRefreshListener refreshListener;
 
     private DefaultLoadingView loadingView;
 
@@ -78,6 +79,10 @@ public class MRefreshRecyclerView extends SwipeRefreshLayout {
         this.loadListener = loadListener;
     }
 
+    public void stopRefresh(){
+        setRefreshing(false);
+    }
+
     public ILoadListener getLoadListener() {
         return loadListener;
     }
@@ -90,6 +95,12 @@ public class MRefreshRecyclerView extends SwipeRefreshLayout {
         if (adapter!=null){
             adapter.setAutoLoadCount(autoLoadCount);
         }
+    }
+
+    @Override
+    public void setOnRefreshListener(OnRefreshListener listener) {
+        super.setOnRefreshListener(listener);
+        //this.refreshListener.onRefresh();
     }
 
     public void stopLoadMore(){

@@ -3,6 +3,7 @@ package com.lzp.experience.main;
 import android.content.Context;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -94,6 +95,7 @@ public class TwoFragment extends MainBaseFragment implements IBasePage {
             }
         });
 
+        //rcv.setCanLoadMore(false);
         rcv.setOnLoadListener(new ILoadListener() {
             @Override
             public void onLoadMore() {
@@ -117,6 +119,25 @@ public class TwoFragment extends MainBaseFragment implements IBasePage {
                 }, 1000);
             }
         });
+        rcv.setRefreshing(false);
+        rcv.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        List<String> list = new ArrayList<>();
+
+                        for (int i =0; i <15; i++) {
+                            list.add("刷新了" + String.valueOf(i + 1));
+                        }
+                        mainTwoAdapter.refreshData(list);
+                        rcv.stopRefresh();
+                        rcv.setCanLoadMore(true);
+                    }
+                }, 1000);
+            }
+        });
     }
 
     @Override
@@ -132,6 +153,7 @@ public class TwoFragment extends MainBaseFragment implements IBasePage {
         }
 
         mainTwoAdapter.refreshData(list);
+        rcv.setCanLoadMore(true);
     }
 
     @Override
