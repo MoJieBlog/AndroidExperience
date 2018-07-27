@@ -56,7 +56,7 @@ public class MPermissionTestActivity extends MPermissionActivity {
         addPermission(MPermissionManager.getWriteExternalStorage());
         addPermission(MPermissionManager.getReadExternalStorage());
 
-        checkMxPermission(new MPermissionListener() {
+        checkMPermission(new MPermissionListener() {
             @Override
             public void onGranted() {
                 ToastUtils.setToast(MPermissionTestActivity.this, "拥有权限");
@@ -65,6 +65,7 @@ public class MPermissionTestActivity extends MPermissionActivity {
             @Override
             public void onDenied(List<String> deniedPermissions) {
                 ToastUtils.setToast(MPermissionTestActivity.this, "没有权限");
+                getMPermission();
             }
 
             @Override

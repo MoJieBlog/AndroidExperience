@@ -18,7 +18,7 @@ public class MPermissionActivity extends BaseActivity{
     /**
      * 检查是否拥有某权限
      */
-    public void checkMxPermission(final MPermissionListener listener) {
+    public void checkMPermission(final MPermissionListener listener) {
         this.listener = listener;
         MPermissionUtils.checkPermission(this, permissionList.toArray(new String[permissionList.size()]), this.listener);
     }
@@ -26,7 +26,7 @@ public class MPermissionActivity extends BaseActivity{
     /**
      * 获取权限
      */
-    public void getMxPermission(List<String> permissionList) {
+    public void getMPermission(List<String> permissionList) {
         MPermissionUtils.getPermission(this, permissionList.toArray(new String[permissionList.size()]));
     }
 
