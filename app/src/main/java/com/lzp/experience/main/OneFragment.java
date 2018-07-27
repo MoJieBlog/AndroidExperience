@@ -1,5 +1,6 @@
 package com.lzp.experience.main;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,6 +9,7 @@ import android.widget.Button;
 
 import com.lzp.base.component.IBasePage;
 import com.lzp.experience.MNotificationManager;
+import com.lzp.experience.MPermissionTestActivity;
 import com.lzp.experience.R;
 
 import butterknife.BindView;
@@ -23,6 +25,8 @@ public class OneFragment extends MainBaseFragment implements IBasePage, View.OnC
     Unbinder unbinder;
     @BindView(R.id.btn_notification)
     Button btnNotification;
+    @BindView(R.id.btn_permission)
+    Button btnPermission;
 
 
     public static OneFragment getFragment() {
@@ -65,6 +69,7 @@ public class OneFragment extends MainBaseFragment implements IBasePage, View.OnC
     @Override
     public void setListener() {
         btnNotification.setOnClickListener(this);
+        btnPermission.setOnClickListener(this);
     }
 
     @Override
@@ -88,10 +93,15 @@ public class OneFragment extends MainBaseFragment implements IBasePage, View.OnC
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
+        switch (v.getId()) {
             case R.id.btn_notification:
                 MNotificationManager.getInstance().showAdNotification(getActivity());
                 MNotificationManager.getInstance().showAPPMSGNotification(getActivity());
+                break;
+
+            case R.id.btn_permission:
+                Intent intent = new Intent(getActivity(), MPermissionTestActivity.class);
+                startActivity(intent);
                 break;
         }
     }

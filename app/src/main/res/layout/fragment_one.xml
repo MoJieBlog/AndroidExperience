@@ -1,12 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <Button
         android:id="@+id/btn_notification"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="打开通知"/>
-</android.support.design.widget.CoordinatorLayout>
+        android:text="8.0通知分组"/>
+
+    <Button
+        android:id="@+id/btn_permission"
+        android:layout_width="match_parent"
+        android:text="权限demo"
+        android:layout_height="wrap_content" />
+</LinearLayout>

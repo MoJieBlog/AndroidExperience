@@ -52,7 +52,7 @@ public class MainActivity extends BaseActivity implements IBasePage, View.OnClic
     LinearLayout llMainTabThree;
 
     private int lastIndex = CODE_TAB_NON;
-    private int currentTabIndex = CODE_TAB_TWO;
+    private int currentTabIndex = CODE_TAB_ONE;
     private OneFragment oneFragment;
     private TwoFragment twoFragment;
     private ThreeFragment threeFragment;

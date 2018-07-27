@@ -46,8 +46,8 @@ public abstract class MRootView implements IMRootView {
     protected void initContentView(){
         if (getContentLayoutRes()!=NO_CONTENT_LAYOUT){
             contentView = LayoutInflater.from(context).inflate(getContentLayoutRes(),null);
-        }else if(getContentView()!=null){
-            contentView = getContentView();
+        }else if(getContentLayout()!=null){
+            contentView = getContentLayout();
         }else{
             contentView = new FrameLayout(context);
         }
