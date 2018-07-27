@@ -34,7 +34,7 @@ public class MPermissionTestActivity extends MPermissionActivity {
         getPermission.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                getMPermission();
+                getPermission();
             }
         });
 
@@ -52,7 +52,7 @@ public class MPermissionTestActivity extends MPermissionActivity {
         });
     }
 
-    private void getMPermission() {
+    private void getPermission() {
         addPermission(MPermissionManager.getWriteExternalStorage());
         addPermission(MPermissionManager.getReadExternalStorage());
 
@@ -65,7 +65,7 @@ public class MPermissionTestActivity extends MPermissionActivity {
             @Override
             public void onDenied(List<String> deniedPermissions) {
                 ToastUtils.setToast(MPermissionTestActivity.this, "没有权限");
-                getMPermission();
+                getMPermission(deniedPermissions);
             }
 
             @Override
