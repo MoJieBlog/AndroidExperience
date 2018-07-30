@@ -1,7 +1,9 @@
 package com.lxp.utils;
 
 import android.content.Context;
-import android.os.Handler;
+import android.view.Gravity;
+import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 /**
@@ -11,21 +13,28 @@ import android.widget.Toast;
 public class ToastUtils {
 
     public static Toast mToast;
-    private static Handler mHandler = new Handler();
 
-    private static Runnable r = new Runnable() {
-        public void run() {
-            mToast.cancel();
+    public static Toast getToast(Context context,String text) {
+        if (mToast == null) {
+            mToast = new Toast(context);
         }
-    };
+        View view = View.inflate(context, R.layout.toast_layout,null);
+        mToast.setView(view);
+        mToast.setGravity(Gravity.BOTTOM, 0, UiUtils.dip2px(context,100));
+        return mToast;
+    }
 
-    public static void setToast(Context context, String text) {
-        mHandler.removeCallbacks(r);
-        if (mToast != null)
-            mToast.setText(text);
-        else
-            mToast = Toast.makeText(context, text, Toast.LENGTH_SHORT);
-        mHandler.postDelayed(r, 1500);
-        mToast.show();
+    public static void setToast(Context context,int stringId) {
+        setToast(context,context.getResources().getString(stringId));
+    }
+
+    public static Toast setToast(Context context,String text) {
+        Toast toast = getToast(context,text);
+        toast.setDuration( Toast.LENGTH_SHORT);
+        View view = toast.getView();
+        TextView tv = view.findViewById(R.id.tv_toast);
+        tv.setText(text);
+        toast.show();
+        return toast;
     }
 }

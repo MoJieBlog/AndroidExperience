@@ -148,7 +148,7 @@ public class TwoFragment extends MainBaseFragment implements IBasePage {
     @Override
     public void getData() {
         List<String> list = new ArrayList<>();
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 15; i++) {
             list.add(String.valueOf(i + 1));
         }
 
