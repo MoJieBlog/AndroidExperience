@@ -114,7 +114,7 @@ public class MTextPathView extends View {
             paint.setStyle(Paint.Style.FILL_AND_STROKE);
             Paint.FontMetrics fontMetrics = paint.getFontMetrics();
             //计算baseLine
-            int baseline = (int) (getHeight() / 2 + (fontMetrics.descent- fontMetrics.ascent) / 2 - fontMetrics.bottom);
+            int baseline = (int) (getHeight() / 2 + (fontMetrics.descent- fontMetrics.ascent) / 2 - fontMetrics.descent);
 
             canvas.drawText(content, getWidth() / 2 - mTextWidth / 2, baseline, paint);
         } else {
