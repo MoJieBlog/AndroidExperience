@@ -1,5 +1,6 @@
 package com.lzp.experience.textpath;
 
+import android.animation.Animator;
 import android.animation.ValueAnimator;
 import android.content.Context;
 import android.graphics.Canvas;
@@ -7,6 +8,7 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Path;
 import android.graphics.PathMeasure;
+import android.graphics.Rect;
 import android.support.annotation.Nullable;
 import android.text.Layout;
 import android.text.TextPaint;
@@ -19,10 +21,10 @@ import com.lzp.base.utils.UIUtils;
 /**
  * Created by Li Xiaopeng on 18/7/30.
  */
-public class MTextPathView extends View{
+public class MTextPathView extends View {
 
     private TextPaint paint;
-    private  Context context;
+    private Context context;
     private int paintColor = Color.RED;
 
     private String content = "Android";
@@ -41,8 +43,10 @@ public class MTextPathView extends View{
 
     float mCurrentLength = 0;//当前已画path的长度
 
+    private boolean animEnd = false;
+
     public MTextPathView(Context context) {
-        this(context,null);
+        this(context, null);
     }
 
     public MTextPathView(Context context, @Nullable AttributeSet attrs) {
@@ -56,11 +60,11 @@ public class MTextPathView extends View{
     }
 
     private void initAnimator() {
-        if (animator==null){
-            animator = ValueAnimator.ofFloat(0,pathLength);
+        if (animator == null) {
+            animator = ValueAnimator.ofFloat(0, pathLength);
         }
-        animator.setRepeatCount(-1);
-        animator.setDuration(5000);
+        animator.setRepeatCount(0);
+        animator.setDuration(2000);
         animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
             @Override
             public void onAnimationUpdate(ValueAnimator animation) {
@@ -69,36 +73,73 @@ public class MTextPathView extends View{
                 postInvalidate();
             }
         });
+
+        animator.addListener(new Animator.AnimatorListener() {
+            @Override
+            public void onAnimationStart(Animator animation) {
+
+            }
+
+            @Override
+            public void onAnimationEnd(Animator animation) {
+                animEnd = true;
+                postInvalidate();
+            }
+
+            @Override
+            public void onAnimationCancel(Animator animation) {
+
+            }
+
+            @Override
+            public void onAnimationRepeat(Animator animation) {
+
+            }
+        });
     }
 
 
-    private void drawPath(Canvas canvas,float mCurrentLength) {
+    private void drawPath(Canvas canvas, float mCurrentLength) {
         canvas.save();//防止错位
         dstPath.reset();//重置已画的path
         //在中间绘制
-        canvas.translate(getWidth() / 2 - mTextWidth / 2, 0);
-        canvas.translate(0, getHeight() / 2 - mTextHeight / 2);
+        if (animEnd) {
+            Paint paint = new Paint();
+            paint.setColor(paintColor);
+            paint.setStrokeWidth(5);
+            paint.setTextSize(150f);
+            paint.setAntiAlias(true);
+            paint.setStrokeCap(Paint.Cap.ROUND);//设置画笔末端为圆形 BUTT：无线帽   ROUND：圆形线帽    SQUARE：方形线帽
+            paint.setStrokeJoin(Paint.Join.ROUND);//设置画笔转弯处我圆形 MITER：锐角 ROUND：圆弧  BEVEL：斜线
+            paint.setStyle(Paint.Style.FILL_AND_STROKE);
+            Paint.FontMetrics fontMetrics = paint.getFontMetrics();
+            int baseline = (int) (getHeight()/2 -fontMetrics.bottom/2
+                    - fontMetrics.top/2 );
+            canvas.drawText(content, getWidth() / 2 - mTextWidth / 2, baseline, paint);
+        } else {
+            //重置路径
+            canvas.translate(getWidth() / 2 - mTextWidth / 2, 0);
+            canvas.translate(0, getHeight() / 2 - mTextHeight / 2);
+            pathMeasure.setPath(textPath, false);
 
-        //重置路径
-        pathMeasure.setPath(textPath, false);
-
-        while (mCurrentLength > pathMeasure.getLength()) {//如果当前要画出的长度大于某一个轮廓的长度
-            mCurrentLength = mCurrentLength - pathMeasure.getLength();//当前要画出的长度 = 当前要画出的长度 - 这个轮廓。
-            pathMeasure.getSegment(0, pathMeasure.getLength(), dstPath, true);//将这个轮廓添加到 dstPath
-            if (!pathMeasure.nextContour()) {//当没有下一个轮廓时跳出
-                break;
+            while (mCurrentLength > pathMeasure.getLength()) {//如果当前要画出的长度大于某一个轮廓的长度
+                mCurrentLength = mCurrentLength - pathMeasure.getLength();//当前要画出的长度 = 当前要画出的长度 - 这个轮廓。
+                pathMeasure.getSegment(0, pathMeasure.getLength(), dstPath, true);//将这个轮廓添加到 dstPath
+                if (!pathMeasure.nextContour()) {//当没有下一个轮廓时跳出
+                    break;
+                }
             }
+            //注意最后一个轮廓还没加进去
+            pathMeasure.getSegment(0, mCurrentLength, dstPath, true);
+            canvas.drawPath(dstPath, paint);
         }
-        //注意最后一个轮廓还没加进去
-        pathMeasure.getSegment(0, mCurrentLength, dstPath, true);
-        canvas.drawPath(dstPath, paint);
         canvas.restore();
     }
 
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        drawPath(canvas,mCurrentLength);
+        drawPath(canvas, mCurrentLength);
     }
 
     @Override
@@ -109,7 +150,7 @@ public class MTextPathView extends View{
         int widthSize = MeasureSpec.getSize(widthMeasureSpec);
         int heightSize = MeasureSpec.getSize(heightMeasureSpec);
         //处理包裹内容的情况
-        int warpDefaultSize = UIUtils.dpToPx(context,100);
+        int warpDefaultSize = UIUtils.dpToPx(context, 100);
         if (widthMode == MeasureSpec.AT_MOST && heightMode == MeasureSpec.AT_MOST) {
             widthSize = heightSize = warpDefaultSize;
         } else if (widthMode == MeasureSpec.AT_MOST) {
@@ -121,22 +162,17 @@ public class MTextPathView extends View{
     }
 
     private void initTextPath() {
-        if (TextUtils.isEmpty(content)){
-           throw new IllegalArgumentException("content can not be empty");
+        if (TextUtils.isEmpty(content)) {
+            throw new RuntimeException("content can not be empty");
         }
-        if (paint==null){
-            throw new IllegalArgumentException("paint not init");
+        if (paint == null) {
+            throw new RuntimeException("paint not init");
         }
-
-        mTextWidth = Layout.getDesiredWidth(content, paint);
-        Paint.FontMetrics metrics = paint.getFontMetrics();
-        mTextHeight = metrics.bottom - metrics.top;
-
         textPath = new Path();
         dstPath = new Path();
         pathMeasure = new PathMeasure();
-        paint.getTextPath(content,0,content.length(),0,paint.getTextSize(),textPath);
-        pathMeasure.setPath(textPath,false);
+        paint.getTextPath(content, 0, content.length(), 0, paint.getTextSize(), textPath);
+        pathMeasure.setPath(textPath, false);
         pathLength = pathMeasure.getLength();
         //获取所有路径的总长度
         while (pathMeasure.nextContour()) {
@@ -153,13 +189,18 @@ public class MTextPathView extends View{
         paint.setStrokeCap(Paint.Cap.ROUND);//设置画笔末端为圆形 BUTT：无线帽   ROUND：圆形线帽    SQUARE：方形线帽
         paint.setStrokeJoin(Paint.Join.ROUND);//设置画笔转弯处我圆形 MITER：锐角 ROUND：圆弧  BEVEL：斜线
         paint.setStyle(Paint.Style.STROKE);
+
+        mTextWidth = Layout.getDesiredWidth(content, paint);
+        Paint.FontMetrics metrics = paint.getFontMetrics();
+        mTextHeight = metrics.bottom - metrics.top;
     }
 
-    public void start(){
-        if (animator!=null&&!animator.isRunning())animator.start();
+    public void start() {
+        if (animator != null && !animator.isRunning()) animator.start();
     }
-    public void stop(){
-        if (animator!=null&&animator.isRunning())animator.cancel();
+
+    public void stop() {
+        if (animator != null && animator.isRunning()) animator.cancel();
     }
 
 }
