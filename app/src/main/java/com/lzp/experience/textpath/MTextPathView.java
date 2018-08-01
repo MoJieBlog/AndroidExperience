@@ -104,7 +104,7 @@ public class MTextPathView extends View {
         dstPath.reset();//重置已画的path
         //在中间绘制
         if (animEnd) {
-            Paint paint = new Paint();
+            Paint paint = new TextPaint();
             paint.setColor(paintColor);
             paint.setStrokeWidth(5);
             paint.setTextSize(150f);
@@ -113,8 +113,9 @@ public class MTextPathView extends View {
             paint.setStrokeJoin(Paint.Join.ROUND);//设置画笔转弯处我圆形 MITER：锐角 ROUND：圆弧  BEVEL：斜线
             paint.setStyle(Paint.Style.FILL_AND_STROKE);
             Paint.FontMetrics fontMetrics = paint.getFontMetrics();
-            int baseline = (int) (getHeight()/2 -fontMetrics.bottom/2
-                    - fontMetrics.top/2 );
+            //计算baseLine
+            int baseline = (int) (getHeight() / 2 + (fontMetrics.descent- fontMetrics.ascent) / 2 - fontMetrics.bottom);
+
             canvas.drawText(content, getWidth() / 2 - mTextWidth / 2, baseline, paint);
         } else {
             //重置路径
