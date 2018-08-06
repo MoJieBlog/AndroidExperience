@@ -56,14 +56,13 @@ public abstract class MRefreshRecyclerViewAdapter extends MRecyclerViewAdapter {
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-        if (recyclerView.isCanLoadMore()){
+        if (recyclerView.isCanLoadMore()){//可以加载更多
             if (getItemCount() - autoLoadCount <= position && !isLoading&&(recyclerView.isCanShowLoadMore() ? getItemCount()>1 : getItemCount()>0)) {
                 isLoading = true;
-                recyclerView.getLoadingView().onRefreshingOrLoading();
+                recyclerView.getLoadingView().onLoading();
                 recyclerView.getLoadListener().onLoadMore();
             }
         }
-
         if (getItemViewType(position) == ITEM_TYPE_LOAD_MORE) {
         } else {
             super.onBindViewHolder(holder, position);

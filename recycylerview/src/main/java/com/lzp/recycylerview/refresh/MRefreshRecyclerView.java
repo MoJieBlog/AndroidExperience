@@ -13,10 +13,9 @@ import com.lzp.recycylerview.view.MRecyclerView;
  * Created by Li Xiaopeng on 18/5/21.
  */
 
-public class MRefreshRecyclerView extends SwipeRefreshLayout {
+public class MRefreshRecyclerView extends MSwipeRefreshLayout {
 
-    public static final int LOADING_TYPE_DEFAULT = 0;
-    public static final int REFRESH_TYPE_DEFAULT = 0;
+
 
     private Context mContext;
     private Resources mResources;
@@ -24,8 +23,8 @@ public class MRefreshRecyclerView extends SwipeRefreshLayout {
     private MRecyclerView recyclerView;
     private MRefreshRecyclerViewAdapter adapter;
 
-    private boolean canShowLoadMore = true;//是否展示底部的item
-    private boolean canLoadMore = true;
+    private boolean canShowLoadMore = false;//是否展示底部的item
+    private boolean canLoadMore = false;
     private ILoadListener loadListener;
     private IRefreshListener refreshListener;
 
@@ -46,6 +45,7 @@ public class MRefreshRecyclerView extends SwipeRefreshLayout {
     }
 
     private void init() {
+        setCanRefresh(true);
         recyclerView = new MRecyclerView(mContext);
         addView(recyclerView, new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT));
         createLoadMoreView();
@@ -72,15 +72,12 @@ public class MRefreshRecyclerView extends SwipeRefreshLayout {
     }
 
     public void setCanLoadMore(boolean canLoadMore) {
+        if (canLoadMore) canShowLoadMore = true;
         this.canLoadMore = canLoadMore;
     }
 
     public void setOnLoadListener(ILoadListener loadListener) {
         this.loadListener = loadListener;
-    }
-
-    public void stopRefresh(){
-        setRefreshing(false);
     }
 
     public ILoadListener getLoadListener() {
@@ -98,7 +95,7 @@ public class MRefreshRecyclerView extends SwipeRefreshLayout {
     }
 
     @Override
-    public void setOnRefreshListener(OnRefreshListener listener) {
+    public void setOnRefreshListener(IRefreshListener listener) {
         super.setOnRefreshListener(listener);
         //this.refreshListener.onRefresh();
     }

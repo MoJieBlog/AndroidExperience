@@ -16,22 +16,6 @@ public interface IBaseListener {
     void onMoving(float moveOffset,boolean isRefreshing);
 
     /**
-     * 刷新中或者加载中
-     */
-    void onRefreshingOrLoading();
-
-    /**
-     * 刷新完成或者加载完成
-     */
-    void onRefreshOrLoadFinish();
-
-    /**
-     * 获取刷新或者加载
-     * @return
-     */
-    int getRefreshOrLoadViewHeight();
-
-    /**
      * 设置子View的高度（listView,RecyclerView...）
      * @param height
      */

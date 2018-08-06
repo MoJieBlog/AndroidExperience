@@ -16,6 +16,7 @@ import com.lzp.base.component.actionbar.IMActionbar;
 import com.lzp.base.component.actionbar.MActionbar;
 import com.lzp.base.component.contentView.IMRootView;
 import com.lzp.base.component.contentView.MRootView;
+import com.lzp.base.component.permission.MPermissionActivity;
 import com.lzp.base.component.statusbar.IMStatusBar;
 import com.lzp.base.component.statusbar.MStatusBar;
 import com.lzp.base.swipeback.ParallaxHelper;
@@ -33,7 +34,7 @@ import butterknife.ButterKnife;
  * Created by Li Xiaopeng on 18/3/22.
  */
 
-public class BaseActivity extends AppCompatActivity implements IMStatusBar, IMActionbar, IMRootView {
+public class BaseActivity extends MPermissionActivity implements IMStatusBar, IMActionbar, IMRootView {
 
     public static final String EXTRA_BUNDLE = "bundle";
 

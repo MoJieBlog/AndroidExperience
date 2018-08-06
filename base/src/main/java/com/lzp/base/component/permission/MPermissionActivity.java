@@ -1,5 +1,7 @@
 package com.lzp.base.component.permission;
 
+import android.support.v7.app.AppCompatActivity;
+
 import com.lzp.base.component.BaseActivity;
 
 import java.util.ArrayList;
@@ -8,7 +10,7 @@ import java.util.List;
 /**
  * Created by Li Xiaopeng on 18/7/27.
  */
-public class MPermissionActivity extends BaseActivity{
+public class MPermissionActivity extends AppCompatActivity{
 
     /*权限List*/
     private List<String> permissionList = new ArrayList<>();

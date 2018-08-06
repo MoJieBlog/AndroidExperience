@@ -2,6 +2,7 @@ package com.lzp.experience.main;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -38,6 +39,7 @@ public class OneFragment extends MainBaseFragment implements IBasePage, View.OnC
     public void onMCreate(Bundle savedInstanceState) {
         super.onMCreate(savedInstanceState);
         setContentView(R.layout.fragment_one);
+
 
 
     }
@@ -95,6 +97,8 @@ public class OneFragment extends MainBaseFragment implements IBasePage, View.OnC
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.btn_notification:
+                Snackbar.make(btnPermission
+                        ,"66666",Snackbar.LENGTH_LONG).show();
                 MNotificationManager.getInstance().showAdNotification(getActivity());
                 MNotificationManager.getInstance().showAPPMSGNotification(getActivity());
                 break;

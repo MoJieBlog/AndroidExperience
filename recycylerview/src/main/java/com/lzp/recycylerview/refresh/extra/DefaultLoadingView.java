@@ -12,13 +12,13 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.lzp.recycylerview.R;
-import com.lzp.recycylerview.refresh.base.LoadingLayout;
+import com.lzp.recycylerview.refresh.base.BaseLoadLayout;
 
 /**
  * Created by Li Xiaopeng on 18/5/22.
  */
 
-public class DefaultLoadingView extends LoadingLayout {
+public class DefaultLoadingView extends BaseLoadLayout {
 
     private View rootView;
 
@@ -77,23 +77,6 @@ public class DefaultLoadingView extends LoadingLayout {
     }
 
     @Override
-    public void onRefreshingOrLoading() {
-        setVisibility(VISIBLE);
-        pbLoad.setVisibility(VISIBLE);
-        tvLoad.setText(mContext.getResources().getString(R.string.loading));
-    }
-
-    @Override
-    public void onRefreshOrLoadFinish() {
-        onLoadFinish(false,"");
-    }
-
-    @Override
-    public int getRefreshOrLoadViewHeight() {
-        return rootView.getHeight();
-    }
-
-    @Override
     public void setTargetViewHeight(int height) {
         tagerViewHeight = height;
     }
@@ -108,4 +91,20 @@ public class DefaultLoadingView extends LoadingLayout {
 
     }
 
+    @Override
+    public void onLoading() {
+        setVisibility(VISIBLE);
+        pbLoad.setVisibility(VISIBLE);
+        tvLoad.setText(mContext.getResources().getString(R.string.loading));
+    }
+
+    @Override
+    public void onLoadingFinish() {
+        onLoadFinish(false,"");
+    }
+
+    @Override
+    public int getLoadViewHeight() {
+        return rootView.getHeight();
+    }
 }

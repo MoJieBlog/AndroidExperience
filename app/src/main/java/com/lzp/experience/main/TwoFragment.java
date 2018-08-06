@@ -16,6 +16,7 @@ import com.lzp.base.component.IBasePage;
 import com.lzp.experience.R;
 import com.lzp.experience.main.adapter.MainTwoAdapter;
 import com.lzp.recycylerview.refresh.ILoadListener;
+import com.lzp.recycylerview.refresh.IRefreshListener;
 import com.lzp.recycylerview.refresh.MRefreshRecyclerView;
 import com.lzp.recycylerview.view.MRecyclerView;
 
@@ -119,8 +120,8 @@ public class TwoFragment extends MainBaseFragment implements IBasePage {
                 }, 1000);
             }
         });
-        rcv.setRefreshing(false);
-        rcv.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+        rcv.setRefresh(false);
+        rcv.setOnRefreshListener(new IRefreshListener() {
             @Override
             public void onRefresh() {
                 new Handler().postDelayed(new Runnable() {
