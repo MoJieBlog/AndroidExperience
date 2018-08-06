@@ -138,7 +138,7 @@ public class BaseActivity extends MPermissionActivity implements IMStatusBar, IM
             setTranslucentStatus(true);
             setAndroidStatusBarColor(R.color.transparent);
         }
-        setStatusIconColor(true);
+        setStatusIconColor(false);
     }
 
     private boolean isFlymeSetStatusBarDarkMode;// 魅族设置深色主题是否成功

@@ -1,11 +1,13 @@
 package com.lzp.experience;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.View;
 import android.widget.Button;
 
 import com.lxp.utils.ToastUtils;
+import com.lzp.base.component.BaseActivity;
 import com.lzp.base.component.permission.MPermissionActivity;
 import com.lzp.base.component.permission.MPermissionListener;
 import com.lzp.base.component.permission.MPermissionManager;
@@ -18,7 +20,7 @@ import butterknife.ButterKnife;
 /**
  * Created by Li Xiaopeng on 18/7/27.
  */
-public class MPermissionTestActivity extends MPermissionActivity {
+public class MPermissionTestActivity extends BaseActivity {
 
     @BindView(R.id.get_permission)
     Button getPermission;
