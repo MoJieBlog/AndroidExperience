@@ -56,7 +56,6 @@ public class MTextPathView extends View {
         initPaint();
         initTextPath();
         initAnimator();
-        start();
     }
 
     private void initAnimator() {
@@ -77,13 +76,14 @@ public class MTextPathView extends View {
         animator.addListener(new Animator.AnimatorListener() {
             @Override
             public void onAnimationStart(Animator animation) {
-
+                if (animListener!=null)animListener.animStart();
             }
 
             @Override
             public void onAnimationEnd(Animator animation) {
                 animEnd = true;
                 postInvalidate();
+                if (animListener!=null)animListener.animFinish();
             }
 
             @Override
@@ -204,4 +204,14 @@ public class MTextPathView extends View {
         if (animator != null && animator.isRunning()) animator.cancel();
     }
 
+    private AnimListener animListener;
+
+    public void setAnimListener(AnimListener animListener) {
+        this.animListener = animListener;
+    }
+
+    public interface AnimListener{
+        void animStart();
+        void animFinish();
+    }
 }

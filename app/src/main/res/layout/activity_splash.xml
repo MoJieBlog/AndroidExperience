@@ -5,8 +5,10 @@
     android:layout_height="match_parent">
 
 
-    <com.lzp.experience.RoundRectImageView
-        android:layout_width="150dp"
-        android:layout_height="150dp" />
+    <com.lzp.experience.textpath.MTextPathView
+        android:id="@+id/text_path_view"
+        android:layout_width="match_parent"
+        android:background="#f0f0f0"
+        android:layout_height="100dp" />
 
 </LinearLayout>
