@@ -1,15 +1,19 @@
 package com.lzp.experience.main;
 
 import android.os.Bundle;
-import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.SeekBar;
 
 import com.lxp.utils.LogUtils;
 import com.lzp.base.component.IBasePage;
 import com.lzp.experience.R;
+import com.lzp.experience.RoundRectImageView;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.Unbinder;
 
 /**
  * Created by Li Xiaopeng on 18/5/18.
@@ -18,6 +22,12 @@ import org.json.JSONObject;
 public class ThreeFragment extends MainBaseFragment implements IBasePage {
 
     private static final String TAG = "ThreeFragment";
+    @BindView(R.id.riv)
+    RoundRectImageView riv;
+    @BindView(R.id.seekbar)
+    SeekBar seekbar;
+    Unbinder unbinder;
+
     public static ThreeFragment getFragment() {
         ThreeFragment threeFragment = new ThreeFragment();
         return threeFragment;
@@ -44,6 +54,23 @@ public class ThreeFragment extends MainBaseFragment implements IBasePage {
     @Override
     public void initView() {
 
+        seekbar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                LogUtils.logE(TAG, "onProgressChanged: "+progress);
+                riv.setCurrentR(progress);
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
+            }
+        });
     }
 
     @Override
@@ -54,5 +81,19 @@ public class ThreeFragment extends MainBaseFragment implements IBasePage {
     @Override
     public void getData() {
 
+    }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        // TODO: inflate a fragment view
+        View rootView = super.onCreateView(inflater, container, savedInstanceState);
+        unbinder = ButterKnife.bind(this, rootView);
+        return rootView;
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        unbinder.unbind();
     }
 }

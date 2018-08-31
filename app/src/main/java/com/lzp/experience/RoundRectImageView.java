@@ -95,26 +95,15 @@ public class RoundRectImageView extends View {
         roundRectF = new RectF(0, 0, viewWidth, viewHeight);
         srcBmp = new Rect(0, 0, viewWidth, viewHeight);
         desBmp = new Rect(0, 0, viewWidth, viewHeight);
-
-        doAnimation();
     }
 
-    private float mCurrentR = 50f;
-    private void doAnimation() {
+    private float mCurrentR = 0f;
 
-        ValueAnimator animator = ValueAnimator.ofFloat(50f, viewWidth/2);
+    public void setCurrentR(float mCurrentR){
+        int viewSize = viewHeight>viewWidth?viewHeight:viewWidth;
+        float size = mCurrentR * (viewSize/2) / 100;
+        this.mCurrentR = size;
 
-        animator.setRepeatCount(5);
-        animator.setDuration(2000);
-        animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-            @Override
-            public void onAnimationUpdate(ValueAnimator animation) {
-                float animatedValue = (float) animation.getAnimatedValue();
-                mCurrentR = animatedValue;
-                postInvalidate();
-            }
-        });
-
-        animator.start();
+        postInvalidate();
     }
 }
