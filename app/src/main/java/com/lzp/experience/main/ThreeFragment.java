@@ -10,6 +10,7 @@ import com.lxp.utils.LogUtils;
 import com.lzp.base.component.IBasePage;
 import com.lzp.experience.R;
 import com.lzp.experience.RoundRectImageView;
+import com.lzp.experience.textpath.WaveTextPathView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -27,6 +28,8 @@ public class ThreeFragment extends MainBaseFragment implements IBasePage {
     @BindView(R.id.seekbar)
     SeekBar seekbar;
     Unbinder unbinder;
+    @BindView(R.id.waveView)
+    WaveTextPathView waveView;
 
     public static ThreeFragment getFragment() {
         ThreeFragment threeFragment = new ThreeFragment();
@@ -57,8 +60,9 @@ public class ThreeFragment extends MainBaseFragment implements IBasePage {
         seekbar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                LogUtils.logE(TAG, "onProgressChanged: "+progress);
+                LogUtils.logE(TAG, "onProgressChanged: " + progress);
                 riv.setCurrentR(progress);
+                waveView.setCurrentR(progress);
             }
 
             @Override
