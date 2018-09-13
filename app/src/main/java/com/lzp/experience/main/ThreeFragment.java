@@ -8,6 +8,7 @@ import android.widget.SeekBar;
 
 import com.lxp.utils.LogUtils;
 import com.lzp.base.component.IBasePage;
+import com.lzp.experience.BuildConfig;
 import com.lzp.experience.R;
 import com.lzp.experience.RoundRectImageView;
 import com.lzp.experience.textpath.WaveTextPathView;
@@ -56,7 +57,6 @@ public class ThreeFragment extends MainBaseFragment implements IBasePage {
 
     @Override
     public void initView() {
-
         seekbar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
