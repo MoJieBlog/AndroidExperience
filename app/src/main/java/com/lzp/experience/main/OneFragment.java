@@ -12,6 +12,7 @@ import com.lzp.base.component.IBasePage;
 import com.lzp.experience.MNotificationManager;
 import com.lzp.experience.MPermissionTestActivity;
 import com.lzp.experience.R;
+import com.lzp.experience.image.ColorMatrixStudyActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -28,6 +29,8 @@ public class OneFragment extends MainBaseFragment implements IBasePage, View.OnC
     Button btnNotification;
     @BindView(R.id.btn_permission)
     Button btnPermission;
+    @BindView(R.id.btn_img)
+    Button btnImg;
 
 
     public static OneFragment getFragment() {
@@ -39,7 +42,6 @@ public class OneFragment extends MainBaseFragment implements IBasePage, View.OnC
     public void onMCreate(Bundle savedInstanceState) {
         super.onMCreate(savedInstanceState);
         setContentView(R.layout.fragment_one);
-
 
 
     }
@@ -72,6 +74,7 @@ public class OneFragment extends MainBaseFragment implements IBasePage, View.OnC
     public void setListener() {
         btnNotification.setOnClickListener(this);
         btnPermission.setOnClickListener(this);
+        btnImg.setOnClickListener(this);
     }
 
     @Override
@@ -95,16 +98,21 @@ public class OneFragment extends MainBaseFragment implements IBasePage, View.OnC
 
     @Override
     public void onClick(View v) {
+        Intent intent = null;
         switch (v.getId()) {
             case R.id.btn_notification:
                 Snackbar.make(btnPermission
-                        ,"66666",Snackbar.LENGTH_LONG).show();
+                        , "66666", Snackbar.LENGTH_LONG).show();
                 MNotificationManager.getInstance().showAdNotification(getActivity());
                 MNotificationManager.getInstance().showAPPMSGNotification(getActivity());
                 break;
 
             case R.id.btn_permission:
-                Intent intent = new Intent(getActivity(), MPermissionTestActivity.class);
+                intent = new Intent(getActivity(), MPermissionTestActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.btn_img:
+                intent = new Intent(getActivity(),ColorMatrixStudyActivity.class);
                 startActivity(intent);
                 break;
         }
