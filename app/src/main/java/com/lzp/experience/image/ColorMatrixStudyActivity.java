@@ -55,6 +55,8 @@ public class ColorMatrixStudyActivity extends BaseActivity implements IBasePage,
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setNeedActionBar(false);
+        setNeedStatusBar(false);
         setContentView(R.layout.activity_color_matrix);
         ButterKnife.bind(this);
     }
@@ -71,7 +73,7 @@ public class ColorMatrixStudyActivity extends BaseActivity implements IBasePage,
 
     @Override
     public void initView() {
-        bitmap = BitmapFactory.decodeResource(getResources(), R.mipmap.yinsuwan);
+        bitmap = BitmapFactory.decodeResource(getResources(), R.mipmap.daqiao);
     }
 
     private Bitmap dealBitmap(float[] mColorMatrix) {
@@ -176,16 +178,16 @@ public class ColorMatrixStudyActivity extends BaseActivity implements IBasePage,
         int id = seekBar.getId();
         switch (id){
             case R.id.red:
-                cRed = progress/50;
+                cRed = progress/50f;
                 break;
             case R.id.green:
-                cGreen = progress/50;
+                cGreen = progress/50f;
                 break;
             case R.id.blue:
-                cBlue = progress/50;
+                cBlue = progress/50f;
                 break;
             case R.id.r:
-                cR = progress/50;
+                cR = progress/50f;
                 break;
         }
 

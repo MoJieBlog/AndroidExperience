@@ -8,9 +8,10 @@
     <ImageView
         android:id="@+id/iv"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="250dp"
+        android:scaleType="centerCrop"
         android:layout_marginTop="15dp"
-        android:src="@mipmap/yinsuwan" />
+        android:src="@mipmap/daqiao" />
 
     <ScrollView
         android:layout_width="match_parent"
