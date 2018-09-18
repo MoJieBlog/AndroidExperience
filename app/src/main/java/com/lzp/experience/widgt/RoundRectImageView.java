@@ -1,4 +1,4 @@
-package com.lzp.experience;
+package com.lzp.experience.widgt;
 
 import android.animation.Animator;
 import android.animation.ValueAnimator;
@@ -19,6 +19,7 @@ import android.util.AttributeSet;
 import android.view.View;
 
 import com.lzp.base.utils.UIUtils;
+import com.lzp.experience.R;
 
 /**
  * @author Li Xiaopeng

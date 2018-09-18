@@ -63,7 +63,7 @@ public class MTextPathView extends View {
             animator = ValueAnimator.ofFloat(0, pathLength);
         }
         animator.setRepeatCount(0);
-        animator.setDuration(2000);
+        animator.setDuration(500);
         animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
             @Override
             public void onAnimationUpdate(ValueAnimator animation) {

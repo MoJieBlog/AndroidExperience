@@ -35,4 +35,5 @@ dependencies {
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.5.1'
     implementation project(':commonutils')
     implementation project(':support')
+    api 'com.github.anzewei:parallaxbacklayout:1.1.9'
 }

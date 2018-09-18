@@ -12,6 +12,7 @@ import com.lzp.base.component.IBasePage;
 import com.lzp.experience.MNotificationManager;
 import com.lzp.experience.MPermissionTestActivity;
 import com.lzp.experience.R;
+import com.lzp.experience.ConstraintLayoutTestActivity;
 import com.lzp.experience.image.ColorMatrixStudyActivity;
 
 import butterknife.BindView;
@@ -31,6 +32,8 @@ public class OneFragment extends MainBaseFragment implements IBasePage, View.OnC
     Button btnPermission;
     @BindView(R.id.btn_img)
     Button btnImg;
+    @BindView(R.id.btn_sign)
+    Button btnSign;
 
 
     public static OneFragment getFragment() {
@@ -75,6 +78,7 @@ public class OneFragment extends MainBaseFragment implements IBasePage, View.OnC
         btnNotification.setOnClickListener(this);
         btnPermission.setOnClickListener(this);
         btnImg.setOnClickListener(this);
+        btnSign.setOnClickListener(this);
     }
 
     @Override
@@ -112,7 +116,11 @@ public class OneFragment extends MainBaseFragment implements IBasePage, View.OnC
                 startActivity(intent);
                 break;
             case R.id.btn_img:
-                intent = new Intent(getActivity(),ColorMatrixStudyActivity.class);
+                intent = new Intent(getActivity(), ColorMatrixStudyActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.btn_sign:
+                intent = new Intent(getActivity(), ConstraintLayoutTestActivity.class);
                 startActivity(intent);
                 break;
         }

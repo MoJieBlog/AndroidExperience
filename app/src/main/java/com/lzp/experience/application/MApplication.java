@@ -2,6 +2,7 @@ package com.lzp.experience.application;
 
 import android.app.Application;
 
+import com.github.anzewei.parallaxbacklayout.ParallaxHelper;
 import com.lzp.experience.MNotificationManager;
 
 /**
@@ -13,7 +14,7 @@ public class MApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-       registerActivityLifecycleCallbacks(new MxActivityLifecycleCallbacks());
+        registerActivityLifecycleCallbacks(ParallaxHelper.getInstance());
         MNotificationManager.getInstance().init(this);
     }
 }

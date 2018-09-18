@@ -6,11 +6,14 @@ import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 
+import com.github.anzewei.parallaxbacklayout.ParallaxBack;
+import com.github.anzewei.parallaxbacklayout.ParallaxHelper;
+import com.github.anzewei.parallaxbacklayout.ViewDragHelper;
+import com.github.anzewei.parallaxbacklayout.widget.ParallaxBackLayout;
 import com.lzp.base.R;
 import com.lzp.base.component.actionbar.IMActionbar;
 import com.lzp.base.component.actionbar.MActionbar;
@@ -19,9 +22,6 @@ import com.lzp.base.component.contentView.MRootView;
 import com.lzp.base.component.permission.MPermissionActivity;
 import com.lzp.base.component.statusbar.IMStatusBar;
 import com.lzp.base.component.statusbar.MStatusBar;
-import com.lzp.base.swipeback.ParallaxHelper;
-import com.lzp.base.swipeback.ViewDragHelper;
-import com.lzp.base.swipeback.widget.ParallaxBackLayout;
 import com.lzp.base.utils.SystemBarTintManager;
 import com.lzp.base.utils.SystemUtils;
 
@@ -33,7 +33,7 @@ import butterknife.ButterKnife;
 /**
  * Created by Li Xiaopeng on 18/3/22.
  */
-
+@ParallaxBack(edge = ParallaxBack.Edge.LEFT,layout = ParallaxBack.Layout.COVER)
 public class BaseActivity extends MPermissionActivity implements IMStatusBar, IMActionbar, IMRootView {
 
     public static final String EXTRA_BUNDLE = "bundle";

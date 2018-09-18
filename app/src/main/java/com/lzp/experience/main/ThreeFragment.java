@@ -8,9 +8,8 @@ import android.widget.SeekBar;
 
 import com.lxp.utils.LogUtils;
 import com.lzp.base.component.IBasePage;
-import com.lzp.experience.BuildConfig;
 import com.lzp.experience.R;
-import com.lzp.experience.RoundRectImageView;
+import com.lzp.experience.widgt.RoundRectImageView;
 import com.lzp.experience.textpath.WaveTextPathView;
 
 import butterknife.BindView;

@@ -6,6 +6,7 @@ import android.graphics.Canvas;
 import android.graphics.ColorMatrix;
 import android.graphics.ColorMatrixColorFilter;
 import android.graphics.Paint;
+import android.opengl.GLSurfaceView;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.View;
@@ -73,7 +74,7 @@ public class ColorMatrixStudyActivity extends BaseActivity implements IBasePage,
 
     @Override
     public void initView() {
-        bitmap = BitmapFactory.decodeResource(getResources(), R.mipmap.daqiao);
+        bitmap = BitmapFactory.decodeResource(getResources(), R.mipmap.yinsuwan);
     }
 
     private Bitmap dealBitmap(float[] mColorMatrix) {

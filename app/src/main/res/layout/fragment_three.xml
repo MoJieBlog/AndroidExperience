@@ -6,7 +6,7 @@
     android:layout_height="match_parent">
 
 
-    <com.lzp.experience.RoundRectImageView
+    <com.lzp.experience.widgt.RoundRectImageView
         android:id="@+id/riv"
         android:layout_width="150dp"
         android:layout_height="150dp" />

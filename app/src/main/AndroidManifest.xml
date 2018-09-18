@@ -29,6 +29,8 @@
 
         <activity android:name=".image.ColorMatrixStudyActivity"
             android:screenOrientation="portrait"/>
+        <activity android:name=".ConstraintLayoutTestActivity"
+            android:screenOrientation="portrait"/>
     </application>
 
 

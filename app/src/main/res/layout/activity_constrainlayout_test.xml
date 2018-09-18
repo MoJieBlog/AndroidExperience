@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:text="参照物"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="15dp"
+            android:text="toTopOf对比"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="15dp"
+            android:text="toBottomOf对比"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="100dp"
+            android:text="居中"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Bottom_toTopOf"
+            app:layout_constraintBottom_toTopOf="@+id/center" />
+
+        <Button
+            android:id="@+id/button4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Top_toTopOf"
+            app:layout_constraintTop_toTopOf="@+id/center" />
+
+        <Button
+            android:id="@+id/top_toBottomOf"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Top_toBottomOf"
+            app:layout_constraintLeft_toRightOf="@+id/center"
+            app:layout_constraintTop_toBottomOf="@+id/center" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Bottom_toBottomOf"
+            app:layout_constraintBottom_toBottomOf="@+id/center"
+            app:layout_constraintLeft_toRightOf="@+id/center" />
+
+        <TextView
+            android:id="@+id/tv_ratio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="按比例(4:1)"
+            app:layout_constraintTop_toBottomOf="@+id/top_toBottomOf" />
+
+        <Button
+            android:id="@+id/btn_ratio"
+            android:layout_width="0dp"
+            android:layout_height="45dp"
+            app:layout_constraintDimensionRatio="4:1"
+            app:layout_constraintTop_toBottomOf="@+id/tv_ratio" />
+
+
+        <TextView
+            android:id="@+id/tv_percent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="百分比（90%）"
+            app:layout_constraintTop_toBottomOf="@+id/btn_ratio" />
+
+        <Button
+            android:id="@+id/btn_percent"
+            android:layout_width="0dp"
+            android:layout_height="45dp"
+            app:layout_constraintTop_toBottomOf="@+id/tv_percent"
+            app:layout_constraintWidth_default="percent"
+            app:layout_constraintWidth_percent="0.9" />
+
+        <TextView
+            android:id="@+id/tv_bias"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="偏向（向右25%）"
+            app:layout_constraintHorizontal_bias="0.25"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_percent" />
+
+
+        <TextView
+            android:id="@+id/tv_weight_1"
+            android:layout_width="0dp"
+            android:layout_height="45dp"
+            android:layout_marginTop="10dp"
+            android:background="#a00"
+            android:gravity="center"
+            android:text="权重1"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/tv_weight_2"
+            app:layout_constraintTop_toBottomOf="@+id/tv_bias" />
+
+        <TextView
+            android:id="@+id/tv_weight_2"
+            android:layout_width="0dp"
+            android:layout_height="45dp"
+            android:layout_marginTop="10dp"
+            android:background="#aa0"
+            android:gravity="center"
+            android:text="权重1"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintLeft_toLeftOf="@+id/tv_weight_1"
+            app:layout_constraintRight_toLeftOf="@+id/tv_weight_3"
+            app:layout_constraintTop_toBottomOf="@+id/tv_bias" />
+
+        <TextView
+            android:id="@+id/tv_weight_3"
+            android:layout_width="0dp"
+            android:layout_height="45dp"
+            android:layout_marginTop="10dp"
+            android:background="#aaa"
+            android:gravity="center"
+            android:text="权重2"
+            app:layout_constraintHorizontal_weight="2"
+            app:layout_constraintLeft_toRightOf="@+id/tv_weight_2"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_bias" />
+
+
+        <TextView
+            android:id="@+id/tv_chain_packed_1"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="#aa0"
+            android:gravity="center"
+            android:text="packed链"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/tv_chain_packed_2"
+            app:layout_constraintTop_toBottomOf="@+id/tv_weight_1" />
+
+        <TextView
+            android:id="@+id/tv_chain_packed_2"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="#aaa"
+            android:gravity="center"
+            android:text="packed链"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintLeft_toRightOf="@+id/tv_chain_packed_1"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_weight_1" />
+
+
+        <TextView
+            android:id="@+id/tv_chain_spread_1"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="#aa0"
+            android:gravity="center"
+            android:text="spread链"
+            app:layout_constraintHorizontal_chainStyle="spread"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/tv_chain_spread_2"
+            app:layout_constraintTop_toBottomOf="@+id/tv_chain_packed_2" />
+
+        <TextView
+            android:id="@+id/tv_chain_spread_2"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="#aaa"
+            android:gravity="center"
+            android:text="spread链"
+            app:layout_constraintHorizontal_chainStyle="spread"
+            app:layout_constraintLeft_toRightOf="@+id/tv_chain_spread_1"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_chain_packed_2" />
+
+
+        <TextView
+            android:id="@+id/tv_chain_spread_inside_1"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="#aa0"
+            android:gravity="center"
+            android:text="spread_inside链"
+            app:layout_constraintHorizontal_chainStyle="spread_inside"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/tv_chain_spread_inside_2"
+            app:layout_constraintTop_toBottomOf="@+id/tv_chain_spread_2" />
+
+        <TextView
+            android:id="@+id/tv_chain_spread_inside_2"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="#aaa"
+            android:gravity="center"
+            android:text="spread_inside链"
+            app:layout_constraintHorizontal_chainStyle="spread_inside"
+            app:layout_constraintLeft_toRightOf="@+id/tv_chain_spread_inside_1"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_chain_spread_2" />
+
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_chain_spread_inside_2"
+            android:layout_height="200dp">
+
+            <android.support.constraint.Guideline
+                android:id="@+id/guide_h"
+                android:layout_width="wrap_content"
+                android:layout_height="1dp"
+                app:layout_constraintGuide_percent="0.5"
+                android:orientation="horizontal"/>
+            <android.support.constraint.Guideline
+                android:id="@+id/guide_v"
+                android:layout_width="1dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintGuide_percent="0.5"
+                android:orientation="vertical"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintRight_toLeftOf="@+id/guide_v"
+                app:layout_constraintBottom_toBottomOf="@+id/guide_h"
+                android:text="guideLine"/>
+        </android.support.constraint.ConstraintLayout>
+    </android.support.constraint.ConstraintLayout>
+</android.support.v4.widget.NestedScrollView>
