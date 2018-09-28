@@ -32,4 +32,5 @@ dependencies {
     implementation project(':commonutils')
     implementation project(':support')
     implementation project(':recycylerview')
+    implementation project(':glide')
 }

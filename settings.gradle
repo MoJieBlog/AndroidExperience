@@ -1,1 +1,1 @@
-include ':app', ':commonutils', ':support', ':base', ':recycylerview'
+include ':app', ':commonutils', ':support', ':base', ':recycylerview',':glide'

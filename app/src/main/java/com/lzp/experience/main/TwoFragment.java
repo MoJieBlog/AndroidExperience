@@ -9,6 +9,10 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AccelerateDecelerateInterpolator;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.view.animation.LayoutAnimationController;
 
 import com.lxp.utils.LogUtils;
 import com.lxp.utils.ToastUtils;
@@ -79,6 +83,13 @@ public class TwoFragment extends MainBaseFragment implements IBasePage {
         rcv.setLayoutManager(new LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false));
         mainTwoAdapter = new MainTwoAdapter(context);
         rcv.setAdapter(mainTwoAdapter);
+
+        MRecyclerView recyclerView = rcv.getRecyclerView();
+        Animation animation = AnimationUtils.loadAnimation(context,R.anim.item_botton_in);
+        LayoutAnimationController lac = new LayoutAnimationController(animation,0.1f);
+        lac.setInterpolator(new AccelerateDecelerateInterpolator());
+        recyclerView.setLayoutAnimation(lac);
+
         rcv.setOnItemClickListener(new MRecyclerView.OnItemClickListener() {
             @Override
             public void onItemClick(RecyclerView recyclerView, View view, int position, long id) {

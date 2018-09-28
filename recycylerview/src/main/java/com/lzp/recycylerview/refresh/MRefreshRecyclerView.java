@@ -76,6 +76,10 @@ public class MRefreshRecyclerView extends MSwipeRefreshLayout {
         this.canLoadMore = canLoadMore;
     }
 
+    public MRecyclerView getRecyclerView() {
+        return recyclerView;
+    }
+
     public void setOnLoadListener(ILoadListener loadListener) {
         this.loadListener = loadListener;
     }
