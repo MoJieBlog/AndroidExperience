@@ -9,11 +9,12 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.lzp.base.component.IBasePage;
+import com.lzp.experience.ConstraintLayoutTestActivity;
 import com.lzp.experience.MNotificationManager;
 import com.lzp.experience.MPermissionTestActivity;
 import com.lzp.experience.R;
-import com.lzp.experience.ConstraintLayoutTestActivity;
 import com.lzp.experience.image.ColorMatrixStudyActivity;
+import com.lzp.experience.viewpager.ViewPagerListActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -34,6 +35,8 @@ public class OneFragment extends MainBaseFragment implements IBasePage, View.OnC
     Button btnImg;
     @BindView(R.id.btn_sign)
     Button btnSign;
+    @BindView(R.id.btn_vp)
+    Button btnVp;
 
 
     public static OneFragment getFragment() {
@@ -79,6 +82,7 @@ public class OneFragment extends MainBaseFragment implements IBasePage, View.OnC
         btnPermission.setOnClickListener(this);
         btnImg.setOnClickListener(this);
         btnSign.setOnClickListener(this);
+        btnVp.setOnClickListener(this);
     }
 
     @Override
@@ -121,6 +125,10 @@ public class OneFragment extends MainBaseFragment implements IBasePage, View.OnC
                 break;
             case R.id.btn_sign:
                 intent = new Intent(getActivity(), ConstraintLayoutTestActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.btn_vp:
+                intent = new Intent(getActivity(), ViewPagerListActivity.class);
                 startActivity(intent);
                 break;
         }

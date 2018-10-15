@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.lzp.experience">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
@@ -30,6 +31,8 @@
         <activity android:name=".image.ColorMatrixStudyActivity"
             android:screenOrientation="portrait"/>
         <activity android:name=".ConstraintLayoutTestActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".viewpager.ViewPagerListActivity"
             android:screenOrientation="portrait"/>
     </application>
 

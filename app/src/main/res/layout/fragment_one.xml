@@ -30,6 +30,13 @@
             android:layout_width="match_parent"
             android:text="constraintLayout test"
             android:layout_height="wrap_content" />
+
+        <Button
+            android:id="@+id/btn_vp"
+            android:layout_width="match_parent"
+            android:text="viewpager动画相关"
+            android:layout_height="wrap_content" />
+
     </LinearLayout>
 </android.support.v4.widget.NestedScrollView>
 
