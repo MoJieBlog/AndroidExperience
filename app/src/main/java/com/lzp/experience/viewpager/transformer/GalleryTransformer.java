@@ -28,6 +28,7 @@ public class GalleryTransformer implements ViewPager.PageTransformer {
      *                 page position to the right, and -1 is one page position to the left.
      *                 个人解释：
      *                 page就是页面
+     *                 假如page = 0,则page有两个方法：左滑和右划
      *                 position，-1：左边的一页，0：当前，1：右边
      *                 （0，-1]:左滑到出现左边的一个
      *                 0：页面完全显示
