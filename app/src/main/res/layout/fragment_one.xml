@@ -37,6 +37,12 @@
             android:text="viewpager动画相关"
             android:layout_height="wrap_content" />
 
+        <Button
+            android:id="@+id/btn_rcv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="recyclerView相关"/>
+
     </LinearLayout>
 </android.support.v4.widget.NestedScrollView>
 

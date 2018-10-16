@@ -15,6 +15,7 @@ import com.lzp.experience.MPermissionTestActivity;
 import com.lzp.experience.OnceClickListener;
 import com.lzp.experience.R;
 import com.lzp.experience.image.ColorMatrixStudyActivity;
+import com.lzp.experience.recyclerView.ScrollableRecyclerViewActivity;
 import com.lzp.experience.viewpager.ViewPagerListActivity;
 
 import butterknife.BindView;
@@ -38,6 +39,8 @@ public class OneFragment extends MainBaseFragment implements IBasePage, View.OnC
     Button btnSign;
     @BindView(R.id.btn_vp)
     Button btnVp;
+    @BindView(R.id.btn_rcv)
+    Button btnRcv;
 
 
     public static OneFragment getFragment() {
@@ -87,6 +90,7 @@ public class OneFragment extends MainBaseFragment implements IBasePage, View.OnC
 
         btnVp.setOnClickListener(new mOnceClickListener());
         btnPermission.setOnClickListener(new mOnceClickListener());
+        btnRcv.setOnClickListener(new mOnceClickListener());
     }
 
     class mOnceClickListener extends OnceClickListener {
@@ -102,10 +106,13 @@ public class OneFragment extends MainBaseFragment implements IBasePage, View.OnC
                     intent = new Intent(getActivity(), ViewPagerListActivity.class);
                     startActivity(intent);
                     break;
+                case R.id.btn_rcv:
+                    intent = new Intent(getActivity(),ScrollableRecyclerViewActivity.class);
+                    startActivity(intent);
+                    break;
             }
         }
     }
-
 
 
     @Override

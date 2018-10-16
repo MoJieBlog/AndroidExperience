@@ -54,7 +54,7 @@ public class RoundRectImageView extends View {
 
     private void init() {
         defaultSize = UIUtils.dpToPx(context, 150);
-        bitmap = BitmapFactory.decodeResource(getResources(), R.mipmap.yinsuwan);
+        bitmap = BitmapFactory.decodeResource(getResources(), R.mipmap.yinsuwan_1);
         initPaint();
     }
 

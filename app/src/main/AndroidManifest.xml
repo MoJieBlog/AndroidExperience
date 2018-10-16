@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.lzp.experience">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
@@ -14,12 +14,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/BaseAppTheme">
-        <activity android:name=".main.MainActivity"/>
+        <activity android:name=".main.MainActivity" />
 
-        <activity android:name=".MPermissionTestActivity"
-            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".MPermissionTestActivity"
+            android:screenOrientation="portrait" />
 
-        <activity android:name=".main.MSplashActivity"
+        <activity
+            android:name=".main.MSplashActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -28,12 +30,18 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".image.ColorMatrixStudyActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".ConstraintLayoutTestActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".viewpager.ViewPagerListActivity"
-            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".image.ColorMatrixStudyActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ConstraintLayoutTestActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".viewpager.ViewPagerListActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".recyclerView.ScrollableRecyclerViewActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 
