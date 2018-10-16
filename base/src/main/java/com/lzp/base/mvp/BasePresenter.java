@@ -11,4 +11,9 @@ public abstract class BasePresenter<V extends IBaseView> implements IBasePresent
     public BasePresenter(V iBaseView){
         this.iBaseView = iBaseView;
     }
+
+    @Override
+    public void onViewDestroy(Object tag) {
+        iBaseView = null;
+    }
 }

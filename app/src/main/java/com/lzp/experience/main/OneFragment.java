@@ -12,6 +12,7 @@ import com.lzp.base.component.IBasePage;
 import com.lzp.experience.ConstraintLayoutTestActivity;
 import com.lzp.experience.MNotificationManager;
 import com.lzp.experience.MPermissionTestActivity;
+import com.lzp.experience.OnceClickListener;
 import com.lzp.experience.R;
 import com.lzp.experience.image.ColorMatrixStudyActivity;
 import com.lzp.experience.viewpager.ViewPagerListActivity;
@@ -83,7 +84,29 @@ public class OneFragment extends MainBaseFragment implements IBasePage, View.OnC
         btnImg.setOnClickListener(this);
         btnSign.setOnClickListener(this);
         btnVp.setOnClickListener(this);
+
+        btnVp.setOnClickListener(new mOnceClickListener());
+        btnPermission.setOnClickListener(new mOnceClickListener());
     }
+
+    class mOnceClickListener extends OnceClickListener {
+        @Override
+        public void onOnceClick(View v) {
+            Intent intent = null;
+            switch (v.getId()) {
+                case R.id.btn_permission:
+                    intent = new Intent(getActivity(), MPermissionTestActivity.class);
+                    startActivity(intent);
+                    break;
+                case R.id.btn_vp:
+                    intent = new Intent(getActivity(), ViewPagerListActivity.class);
+                    startActivity(intent);
+                    break;
+            }
+        }
+    }
+
+
 
     @Override
     public void getData() {
