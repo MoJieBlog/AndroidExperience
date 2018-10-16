@@ -88,12 +88,12 @@ public abstract class DampFrameView extends FrameLayout{
     private void ensureTargetView() {
         targetView = getTargetView();
         if (targetView==null){
-            throw new RuntimeException("target can not be null");
+            throw new RuntimeException("targetView can not be null");
         }
     }
 
     /**
-     * 还原
+     * 还原动画
      */
     private void recoverView() {
         ValueAnimator animator = ValueAnimator.ofFloat(-offSet,0);
@@ -109,7 +109,22 @@ public abstract class DampFrameView extends FrameLayout{
         animator.start();
     }
 
+    /**
+     * 是否能向上滚
+     * @return
+     */
     protected abstract boolean canScrollUp();
+
+    /**
+     * 是否能向下滚
+     * @return
+     */
     protected abstract boolean canScrollDown();
+
+    /**
+     * 需要弹性的View
+     * @return
+     */
+    @NonNull
     protected abstract View getTargetView();
 }

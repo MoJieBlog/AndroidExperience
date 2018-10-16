@@ -40,6 +40,7 @@ public class ScrollAbleRecyclerView extends DampFrameView {
         return recyclerView.canScrollVertically(-1);
     }
 
+    @NonNull
     @Override
     protected View getTargetView() {
         return recyclerView;
