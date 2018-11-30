@@ -42,6 +42,7 @@ public class ThreeFragment extends MainBaseFragment implements IBasePage {
         setNeedActionBar(false);
         setNeedStatusBar(false);
         setContentView(R.layout.fragment_three);
+        LogUtils.logE(TAG, "onMCreate: "+this.getClass().getSimpleName());
     }
 
     @Override

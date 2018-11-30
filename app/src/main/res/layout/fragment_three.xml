@@ -1,26 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v4.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:gravity="center"
-    android:orientation="vertical"
     android:layout_height="match_parent">
 
-
-    <com.lzp.experience.widgt.RoundRectImageView
-        android:id="@+id/riv"
-        android:layout_width="150dp"
-        android:layout_height="150dp" />
-    
-    
-    <com.lzp.experience.textpath.WaveTextPathView
-        android:id="@+id/waveView"
-        android:background="#e4e4e4"
+    <LinearLayout
+        android:layout_height="match_parent"
         android:layout_width="match_parent"
-        android:layout_height="100dp" />
+        android:gravity="center"
+        android:orientation="vertical">
 
-    <SeekBar
-        android:id="@+id/seekbar"
-        android:layout_width="200dp"
-        android:layout_marginTop="80dp"
-        android:layout_height="wrap_content" />
-</LinearLayout>
+
+        <com.lzp.experience.image.view.BitmapShaderTest
+            android:layout_width="match_parent"
+            android:layout_height="300dp" />
+
+        <com.lzp.experience.widgt.RoundRectImageView
+            android:id="@+id/riv"
+            android:layout_width="150dp"
+            android:layout_height="150dp" />
+
+
+        <com.lzp.experience.textpath.WaveTextPathView
+            android:id="@+id/waveView"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:background="#e4e4e4" />
+
+        <SeekBar
+            android:id="@+id/seekbar"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="80dp" />
+    </LinearLayout>
+</android.support.v4.widget.NestedScrollView>

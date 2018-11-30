@@ -31,6 +31,16 @@
         </activity>
 
         <activity
+            android:name=".TestActivity"
+            android:screenOrientation="portrait" >
+           <!-- <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>-->
+        </activity>
+
+        <activity
             android:name=".image.ColorMatrixStudyActivity"
             android:screenOrientation="portrait" />
         <activity
@@ -42,6 +52,8 @@
         <activity
             android:name=".recyclerView.ScrollableRecyclerViewActivity"
             android:screenOrientation="portrait" />
+
+
     </application>
 
 

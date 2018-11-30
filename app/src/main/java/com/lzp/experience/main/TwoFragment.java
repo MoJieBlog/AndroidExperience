@@ -62,6 +62,7 @@ public class TwoFragment extends MainBaseFragment implements IBasePage {
         setNeedActionBar(false);
         setNeedStatusBar(false);
         setContentView(R.layout.fragment_two);
+        LogUtils.logE(TAG, "onMCreate: "+this.getClass().getSimpleName());
     }
 
     @Override

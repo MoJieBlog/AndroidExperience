@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import com.lxp.utils.LogUtils;
 import com.lzp.base.component.IBasePage;
 import com.lzp.experience.ConstraintLayoutTestActivity;
 import com.lzp.experience.MNotificationManager;
@@ -28,6 +29,7 @@ import butterknife.Unbinder;
 
 public class OneFragment extends MainBaseFragment implements IBasePage, View.OnClickListener {
 
+    private static final String TAG = "OneFragment";
     Unbinder unbinder;
     @BindView(R.id.btn_notification)
     Button btnNotification;
@@ -51,6 +53,7 @@ public class OneFragment extends MainBaseFragment implements IBasePage, View.OnC
     @Override
     public void onMCreate(Bundle savedInstanceState) {
         super.onMCreate(savedInstanceState);
+        LogUtils.logE(TAG, "onMCreate: "+this.getClass().getSimpleName());
         setContentView(R.layout.fragment_one);
 
 
