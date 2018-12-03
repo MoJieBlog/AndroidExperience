@@ -47,7 +47,7 @@ public class ScrollAbleRecyclerView extends DampFrameView {
     }
 
     /***************************以下为recyclerView本身有的方法*************************/
-    public void setOnItemClicListener(MRecyclerView.OnItemClickListener onItemClicListener){
+    public void setOnItemClickListener(MRecyclerView.OnItemClickListener onItemClicListener){
         recyclerView.setOnItemClickListener(onItemClicListener);
     }
     public void setLayoutManager(RecyclerView.LayoutManager linearLayoutManager) {

@@ -10,7 +10,7 @@ import android.view.View;
 import com.lzp.base.component.BaseActivity;
 import com.lzp.experience.R;
 import com.lzp.experience.recyclerView.adapter.ScrollableAdapter;
-import com.lzp.experience.recyclerView.layoutManger.LayoutMangerActivity;
+import com.lzp.experience.recyclerView.activity.LayoutMangerActivity;
 import com.lzp.experience.recyclerView.view.ScrollAbleRecyclerView;
 import com.lzp.recycylerview.view.MRecyclerView;
 
@@ -49,7 +49,7 @@ public class ScrollableRecyclerViewActivity extends BaseActivity implements MRec
         rcv.setAdapter(adapter);
         adapter.refreshData(list);
 
-        rcv.setOnItemClicListener(this);
+        rcv.setOnItemClickListener(this);
     }
 
     @Override

@@ -4,6 +4,7 @@ import android.animation.Animator;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.os.Bundle;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.view.View;
 import android.view.animation.AccelerateInterpolator;
@@ -81,6 +82,13 @@ public class MainActivity extends BaseActivity implements IBasePage, View.OnClic
 
     @Override
     public void initView() {
+        FragmentManager childFragmentManager = getSupportFragmentManager();
+        oneFragment = (OneFragment) childFragmentManager.
+                findFragmentByTag(OneFragment.class.getSimpleName());
+        twoFragment = (TwoFragment) childFragmentManager.
+                findFragmentByTag(TwoFragment.class.getSimpleName());
+        threeFragment = (ThreeFragment) childFragmentManager.
+                findFragmentByTag(ThreeFragment.class.getSimpleName());
         if (oneFragment == null) {
             oneFragment = OneFragment.getFragment();
         }
@@ -223,13 +231,15 @@ public class MainActivity extends BaseActivity implements IBasePage, View.OnClic
             lastIndex = currentTabIndex;
             MainBaseFragment mainBaseFragment = pageList.get(currentTabIndex);
             if (!mainBaseFragment.isAdded()) {
-                transaction.add(R.id.main_container, mainBaseFragment).show(mainBaseFragment).commit();
+                transaction.add(R.id.main_container, mainBaseFragment,mainBaseFragment.getClass().getSimpleName())
+                        .show(mainBaseFragment).commit();
             } else {
                 transaction.show(mainBaseFragment).commit();
             }
         } else if (lastIndex == CODE_TAB_NON) {//首次进入，设置默认显示
             MainBaseFragment mainBaseFragment = pageList.get(currentTabIndex);
-            getSupportFragmentManager().beginTransaction().add(R.id.main_container, mainBaseFragment)
+            getSupportFragmentManager().beginTransaction().add(R.id.main_container, mainBaseFragment,
+                    mainBaseFragment.getClass().getSimpleName())
                     .show(mainBaseFragment)
                     .commit();
             lastIndex = currentTabIndex;

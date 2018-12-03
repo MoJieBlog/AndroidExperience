@@ -63,13 +63,15 @@ public class BaseActivity extends MPermissionActivity implements IMStatusBar, IM
             }
         };
         try{
-            basePage = (IBasePage) this;
-            Intent intent = getIntent();
-            if (savedInstanceState != null){
-                basePage.readArguments(savedInstanceState);
-            }else if (intent.hasExtra(EXTRA_BUNDLE)){
-                Bundle bundle = intent.getBundleExtra(EXTRA_BUNDLE);
-                basePage.readArguments(bundle);
+            if (this instanceof IBasePage){
+                basePage = (IBasePage) this;
+                Intent intent = getIntent();
+                if (savedInstanceState != null){
+                    basePage.readArguments(savedInstanceState);
+                }else if (intent.hasExtra(EXTRA_BUNDLE)){
+                    Bundle bundle = intent.getBundleExtra(EXTRA_BUNDLE);
+                    basePage.readArguments(bundle);
+                }
             }
         }catch (Exception e){
             e.printStackTrace();

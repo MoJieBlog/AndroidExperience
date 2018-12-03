@@ -53,6 +53,8 @@
             android:name=".recyclerView.ScrollableRecyclerViewActivity"
             android:screenOrientation="portrait" />
 
+        <activity android:name=".recyclerView.activity.LayoutMangerActivity"
+            android:screenOrientation="portrait"/>
 
     </application>
 
