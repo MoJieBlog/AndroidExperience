@@ -15,6 +15,7 @@ import com.lzp.experience.MNotificationManager;
 import com.lzp.experience.MPermissionTestActivity;
 import com.lzp.experience.OnceClickListener;
 import com.lzp.experience.R;
+import com.lzp.experience.TBIndexActivity;
 import com.lzp.experience.image.ColorMatrixStudyActivity;
 import com.lzp.experience.recyclerView.ScrollableRecyclerViewActivity;
 import com.lzp.experience.viewpager.ViewPagerListActivity;
@@ -43,6 +44,8 @@ public class OneFragment extends MainBaseFragment implements IBasePage, View.OnC
     Button btnVp;
     @BindView(R.id.btn_rcv)
     Button btnRcv;
+    @BindView(R.id.btn_tb)
+    Button btnTb;
 
 
     public static OneFragment getFragment() {
@@ -53,7 +56,7 @@ public class OneFragment extends MainBaseFragment implements IBasePage, View.OnC
     @Override
     public void onMCreate(Bundle savedInstanceState) {
         super.onMCreate(savedInstanceState);
-        LogUtils.logE(TAG, "onMCreate: "+this.getClass().getSimpleName());
+        LogUtils.logE(TAG, "onMCreate: " + this.getClass().getSimpleName());
         setContentView(R.layout.fragment_one);
 
 
@@ -90,6 +93,7 @@ public class OneFragment extends MainBaseFragment implements IBasePage, View.OnC
         btnImg.setOnClickListener(this);
         btnSign.setOnClickListener(this);
         btnVp.setOnClickListener(this);
+        btnTb.setOnClickListener(this);
 
         btnVp.setOnClickListener(new mOnceClickListener());
         btnPermission.setOnClickListener(new mOnceClickListener());
@@ -110,7 +114,7 @@ public class OneFragment extends MainBaseFragment implements IBasePage, View.OnC
                     startActivity(intent);
                     break;
                 case R.id.btn_rcv:
-                    intent = new Intent(getActivity(),ScrollableRecyclerViewActivity.class);
+                    intent = new Intent(getActivity(), ScrollableRecyclerViewActivity.class);
                     startActivity(intent);
                     break;
             }
@@ -162,6 +166,11 @@ public class OneFragment extends MainBaseFragment implements IBasePage, View.OnC
                 break;
             case R.id.btn_vp:
                 intent = new Intent(getActivity(), ViewPagerListActivity.class);
+                startActivity(intent);
+                break;
+
+            case R.id.btn_tb:
+                intent = new Intent(getActivity(), TBIndexActivity.class);
                 startActivity(intent);
                 break;
         }

@@ -56,6 +56,10 @@
         <activity android:name=".recyclerView.activity.LayoutMangerActivity"
             android:screenOrientation="portrait"/>
 
+        <activity android:name=".TBIndexActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:screenOrientation="portrait"/>
+
     </application>
 
 

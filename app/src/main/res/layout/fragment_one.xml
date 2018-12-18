@@ -12,36 +12,56 @@
             android:id="@+id/btn_notification"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/btn_ripper"
             android:text="8.0通知分组" />
 
         <Button
             android:id="@+id/btn_permission"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/btn_ripper"
             android:text="权限demo" />
 
         <Button
             android:id="@+id/btn_img"
             android:layout_width="match_parent"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/btn_ripper"
             android:layout_height="wrap_content"
             android:text="图片相关" />
         <Button
             android:id="@+id/btn_sign"
             android:layout_width="match_parent"
             android:text="constraintLayout test"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/btn_ripper"
             android:layout_height="wrap_content" />
 
         <Button
             android:id="@+id/btn_vp"
             android:layout_width="match_parent"
             android:text="viewpager动画相关"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/btn_ripper"
             android:layout_height="wrap_content" />
 
         <Button
             android:id="@+id/btn_rcv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/btn_ripper"
             android:text="recyclerView相关"/>
+
+        <Button
+            android:id="@+id/btn_tb"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/btn_ripper"
+            android:text="仿淘宝首页效果"/>
 
     </LinearLayout>
 </android.support.v4.widget.NestedScrollView>
