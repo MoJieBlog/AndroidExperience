@@ -124,7 +124,7 @@ public class StickerTitleActivity extends BaseActivity implements IBasePage {
     }
 
 
-    public static class TestModel extends StickerModelHelper {
+    public static class TestModel implements StickerModelHelper {
         private String title;
         private String content;
 
