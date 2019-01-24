@@ -115,14 +115,16 @@ public class StickerTitleItemDecoration<T extends StickerModelHelper> extends Re
         if (layoutManager instanceof LinearLayoutManager) {
             int position = ((LinearLayoutManager) layoutManager).findFirstVisibleItemPosition();
             //
-            View firstItemDecorationView = layoutManager.findViewByPosition(position);
             View secondItemDecorationView = layoutManager.findViewByPosition(position + 1);
-            if (secondItemDecorationView.getTop() - firstItemDecorationView.getTop() > firstItemDecorationView.getHeight() * 2) {
-                c.translate(0,firstItemDecorationView.getTop());
+
+            if (!list.get(position).getCompareContent().equals(list.get(position+1).getCompareContent())){
+                LogUtils.logE(TAG, "onDrawOver: "+secondItemDecorationView.getTop());
+                if (secondItemDecorationView.getTop() <= titleHeight*2) {
+                    c.translate(0,secondItemDecorationView.getTop()-titleHeight*2);
+                    LogUtils.logE(TAG, "onDrawOver: "+(secondItemDecorationView.getTop()-titleHeight));
+                }
             }
-
-            c.drawRect(0,0,parent.getRight(),titleHeight,bgPaint);
-
+            c.drawRect(0, 0, parent.getRight(), titleHeight, bgPaint);
             String title = list.get(position).getCompareContent();
             Rect rect = new Rect();
             titlePaint.getTextBounds(title, 0, 1, rect);
