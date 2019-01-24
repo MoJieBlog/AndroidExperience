@@ -1,4 +1,4 @@
-package com.lzp.experience;
+package com.lzp.experience.desiginstudy;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -14,6 +14,7 @@ import android.widget.TextView;
 
 import com.lzp.base.component.BaseActivity;
 import com.lzp.base.component.IBasePage;
+import com.lzp.experience.R;
 import com.lzp.experience.main.ThreeFragment;
 import com.lzp.experience.main.TwoFragment;
 

@@ -33,4 +33,5 @@ dependencies {
     implementation project(':support')
     implementation project(':recycylerview')
     implementation project(':glide')
+    implementation project(':umeng')
 }

@@ -12,8 +12,10 @@
             <option value="$PROJECT_DIR$/base" />
             <option value="$PROJECT_DIR$/commonutils" />
             <option value="$PROJECT_DIR$/glide" />
+            <option value="$PROJECT_DIR$/mylibrary" />
             <option value="$PROJECT_DIR$/recycylerview" />
             <option value="$PROJECT_DIR$/support" />
+            <option value="$PROJECT_DIR$/umeng" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

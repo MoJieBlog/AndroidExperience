@@ -136,7 +136,6 @@ public class BaseActivity extends MPermissionActivity implements IMStatusBar, IM
             window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
             setAndroidStatusBarColor(R.color.transparent);
         } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-
             setTranslucentStatus(true);
             setAndroidStatusBarColor(R.color.transparent);
         }

@@ -15,10 +15,15 @@ import com.lzp.experience.MNotificationManager;
 import com.lzp.experience.MPermissionTestActivity;
 import com.lzp.experience.OnceClickListener;
 import com.lzp.experience.R;
-import com.lzp.experience.TBIndexActivity;
+import com.lzp.experience.desiginstudy.TBIndexActivity;
 import com.lzp.experience.image.ColorMatrixStudyActivity;
 import com.lzp.experience.recyclerView.ScrollableRecyclerViewActivity;
 import com.lzp.experience.viewpager.ViewPagerListActivity;
+import com.mocai.umeng.share.ShareManager;
+import com.mocai.umeng.share.SharePlatForm;
+import com.mocai.umeng.share.ShareType;
+import com.umeng.socialize.UMShareListener;
+import com.umeng.socialize.bean.SHARE_MEDIA;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -76,6 +81,34 @@ public class OneFragment extends MainBaseFragment implements IBasePage, View.OnC
     @Override
     public void initView() {
         initActionBar();
+
+        ShareManager.getInstance().withActivity(getActivity()).
+                shareType(ShareType.TEXT)
+                .withContent("666666666")
+                .withPlatForm(SharePlatForm.SHARE_WX_CHART)
+                .build().share();
+    }
+    class MUMShareListener implements UMShareListener{
+
+        @Override
+        public void onStart(SHARE_MEDIA share_media) {
+
+        }
+
+        @Override
+        public void onResult(SHARE_MEDIA share_media) {
+
+        }
+
+        @Override
+        public void onError(SHARE_MEDIA share_media, Throwable throwable) {
+
+        }
+
+        @Override
+        public void onCancel(SHARE_MEDIA share_media) {
+
+        }
     }
 
     private void initActionBar() {

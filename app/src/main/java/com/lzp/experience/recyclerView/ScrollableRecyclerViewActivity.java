@@ -7,8 +7,10 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
+import com.lxp.utils.LogUtils;
 import com.lzp.base.component.BaseActivity;
 import com.lzp.experience.R;
+import com.lzp.experience.recyclerView.activity.StickerTitleActivity;
 import com.lzp.experience.recyclerView.adapter.ScrollableAdapter;
 import com.lzp.experience.recyclerView.activity.LayoutMangerActivity;
 import com.lzp.experience.recyclerView.view.ScrollAbleRecyclerView;
@@ -40,6 +42,7 @@ public class ScrollableRecyclerViewActivity extends BaseActivity implements MRec
         list = new ArrayList<>();
         list.add("layoutManager");
         list.add("ScrollView嵌套recyclerView");
+        list.add("title悬停");
         for (int i = 1; i < 21; i++) {
             list.add(String.valueOf(i));
         }
@@ -59,6 +62,11 @@ public class ScrollableRecyclerViewActivity extends BaseActivity implements MRec
             intent = new Intent(this,LayoutMangerActivity.class);
             startActivity(intent);
         }else if(list.get(position).equals("ScrollView嵌套recyclerView")){
+
+        }else if(list.get(position).equals("title悬停")){
+            intent = new Intent(this, StickerTitleActivity.class);
+            startActivity(intent);
+        }else{
 
         }
     }

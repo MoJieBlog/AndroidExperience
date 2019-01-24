@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.lxp.utils.LogUtils;
 import com.lzp.experience.R;
 import com.lzp.recycylerview.view.MRecyclerViewAdapter;
 
@@ -61,7 +62,7 @@ public class ScrollableAdapter extends MRecyclerViewAdapter {
         viewHolder.tv.setText(list.get(position));
     }
 
-    static class MyViewHolder extends RecyclerView.ViewHolder {
+     class MyViewHolder extends RecyclerView.ViewHolder {
         @BindView(R.id.tv)
         TextView tv;
 

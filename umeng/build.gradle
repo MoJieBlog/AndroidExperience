@@ -1,0 +1,47 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion 28
+
+
+
+    defaultConfig {
+        minSdkVersion 15
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    sourceSets{
+        main{
+            jniLibs.srcDirs = ['src/main/libs']
+        }
+    }
+
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation project(':support')
+    api files('src/main/libs/umeng-common-1.5.4.jar')
+    api files('src/main/libs/open_sdk_r5990_lite.jar')
+    api files('src/main/libs/umeng-share-core-6.9.4.jar')
+    api files('src/main/libs/umeng-share-email-6.9.4.jar')
+    api files('src/main/libs/umeng-share-QQ-full-6.9.4.jar')
+    api files('src/main/libs/umeng-share-sina-full-6.9.4.jar')
+    api files('src/main/libs/umeng-share-sms-6.9.4.jar')
+    api files('src/main/libs/umeng-share-wechat-full-6.9.4.jar')
+    api files('src/main/libs/umeng-sharetool-6.9.4.jar')
+    api files('src/main/libs/wechat-sdk-android-without-mta-5.1.4.jar')
+    api files('src/main/libs/weiboSDKCore.jar')
+}
