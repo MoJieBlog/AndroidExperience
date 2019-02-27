@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -27,25 +28,26 @@
         <Button
             android:id="@+id/btn_img"
             android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:background="@drawable/btn_ripper"
-            android:layout_height="wrap_content"
             android:text="图片相关" />
+
         <Button
             android:id="@+id/btn_sign"
             android:layout_width="match_parent"
-            android:text="constraintLayout test"
+            android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:background="@drawable/btn_ripper"
-            android:layout_height="wrap_content" />
+            android:text="constraintLayout test" />
 
         <Button
             android:id="@+id/btn_vp"
             android:layout_width="match_parent"
-            android:text="viewpager动画相关"
+            android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:background="@drawable/btn_ripper"
-            android:layout_height="wrap_content" />
+            android:text="viewpager动画相关" />
 
         <Button
             android:id="@+id/btn_rcv"
@@ -53,7 +55,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:background="@drawable/btn_ripper"
-            android:text="recyclerView相关"/>
+            android:text="recyclerView相关" />
 
         <Button
             android:id="@+id/btn_tb"
@@ -61,8 +63,23 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:background="@drawable/btn_ripper"
-            android:text="仿淘宝首页效果"/>
+            android:text="仿淘宝首页效果" />
 
+        <com.lzp.experience.widgt.RoundImageView
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="15dp"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/yinsuwan"
+            app:left_top="30"
+            app:right_top="0"
+            app:left_bottom="0"
+            app:right_bottom="30" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="200dp" />
     </LinearLayout>
 </android.support.v4.widget.NestedScrollView>
 
